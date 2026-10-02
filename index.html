@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS | Future Gaming</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; img-src 'self' data: https://cdn.prod.website-files.com; style-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo'; script-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo'; upgrade-insecure-requests">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+
+
+<style nonce="P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#04040d;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(rgba(120,0,255,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,220,255,.07) 1px,transparent 1px);
+    background-size:55px 55px;
+    animation:gridMove 12s linear infinite;
+    pointer-events:none;
+    z-index:-10;
+}
+
+@keyframes gridMove{
+    from{transform:translateY(0)}
+    to{transform:translateY(55px)}
+}
+
+.glow{
+    position:fixed;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    filter:blur(110px);
+    opacity:.22;
+    pointer-events:none;
+    z-index:-8;
+}
+
+.glow1{
+    background:#8b00ff;
+    top:-130px;
+    right:-100px;
+    animation:glowOne 9s ease-in-out infinite alternate;
+}
+
+.glow2{
+    background:#00d9ff;
+    bottom:-160px;
+    left:-100px;
+    animation:glowTwo 11s ease-in-out infinite alternate;
+}
+
+@keyframes glowOne{
+    from{transform:translate(0,0)}
+    to{transform:translate(-120px,170px)}
+}
+
+@keyframes glowTwo{
+    from{transform:translate(0,0)}
+    to{transform:translate(150px,-120px)}
+}
+
+/* ================= FLOATING PARTICLES ================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-7;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#b95cff;
+    border-radius:50%;
+    box-shadow:0 0 12px #a000ff;
+    animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+    15%{
+        opacity:1;
+    }
+    85%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    max-width:1150px;
+    padding:14px 20px;
+    background:rgba(8,8,22,.7);
+    border:1px solid rgba(150,60,255,.35);
+    border-radius:20px;
+    backdrop-filter:blur(20px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 0 30px rgba(130,0,255,.15);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:3px;
+    text-shadow:0 0 15px #9d00ff;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#fff;
+    text-shadow:0 0 12px #00eaff;
+}
+
+.lang-btn{
+    border:1px solid #8b00ff;
+    background:rgba(120,0,255,.12);
+    color:#fff;
+    padding:8px 13px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.lang-btn:hover{
+    box-shadow:0 0 18px rgba(140,0,255,.5);
+    transform:translateY(-2px);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 60px;
+}
+
+.badge{
+    padding:9px 18px;
+    border:1px solid #8b00ff;
+    border-radius:30px;
+    color:#dca8ff;
+    background:rgba(130,0,255,.08);
+    box-shadow:0 0 20px rgba(130,0,255,.25);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(55px,10vw,110px);
+    line-height:1;
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #bb54ff,
+        #00eaff,
+        #fff
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+    to{
+        background-position:300%;
+    }
+}
+
+.hero p{
+    width:100%;
+    max-width:680px;
+    align-self:center;
+    color:#999;
+    font-size:18px;
+    margin:25px auto;
+    line-height:1.8;
+    text-align:center;
+}
+
+.main-btn{
+    display:inline-block;
+    padding:15px 30px;
+    border-radius:14px;
+    color:white;
+    text-decoration:none;
+    background:linear-gradient(90deg,#7900ff,#00cfff);
+    box-shadow:0 0 30px rgba(110,0,255,.35);
+    transition:.3s;
+    border:0;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.main-btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 0 45px rgba(0,220,255,.5);
+}
+
+/* ================= AI CORE ================= */
+
+.ai-section{
+    min-height:560px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.ai-core{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    border:2px solid #a000ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    box-shadow:
+        0 0 30px #8000ff,
+        0 0 80px rgba(130,0,255,.5),
+        inset 0 0 40px rgba(0,220,255,.2);
+    animation:corePulse 3s ease-in-out infinite;
+}
+
+/* moving rings */
+
+.ai-core::before{
+    content:"";
+    position:absolute;
+    width:290px;
+    height:290px;
+    border-radius:50%;
+    border:1px solid #00eaff;
+    border-left-color:transparent;
+    border-right-color:transparent;
+    animation:spin 7s linear infinite;
+}
+
+.ai-core::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    border:1px solid #9d00ff;
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    animation:spinReverse 11s linear infinite;
+}
+
+.ai-ring{
+    position:absolute;
+    width:410px;
+    height:410px;
+    border-radius:50%;
+    border:1px dashed rgba(0,234,255,.35);
+    animation:spin 18s linear infinite;
+}
+
+.ai-ring::before,
+.ai-ring::after{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#00eaff;
+    box-shadow:0 0 18px #00eaff;
+}
+
+.ai-ring::before{
+    top:20px;
+    left:50%;
+}
+
+.ai-ring::after{
+    bottom:30px;
+    right:15%;
+    background:#b000ff;
+    box-shadow:0 0 18px #b000ff;
+}
+
+.core-text{
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:4px;
+    color:white;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px #00eaff,
+        0 0 45px #8b00ff;
+    animation:textPulse 2s ease-in-out infinite;
+}
+
+@keyframes corePulse{
+    50%{
+        transform:scale(1.06);
+        box-shadow:
+            0 0 60px #8000ff,
+            0 0 120px rgba(130,0,255,.6);
+    }
+}
+
+@keyframes textPulse{
+    50%{
+        text-shadow:
+            0 0 15px #fff,
+            0 0 35px #00eaff,
+            0 0 65px #8b00ff;
+    }
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes spinReverse{
+    to{
+        transform:rotate(-360deg);
+    }
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:12px;
+    text-shadow:0 0 20px #8b00ff;
+}
+
+.section-title p{
+    color:#888;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:rgba(15,15,30,.65);
+    border:1px solid rgba(160,70,255,.25);
+    border-radius:22px;
+    padding:28px;
+    min-height:190px;
+    backdrop-filter:blur(15px);
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#a900ff;
+    box-shadow:0 15px 45px rgba(120,0,255,.2);
+}
+
+.card .icon{
+    font-size:38px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#999;
+    line-height:1.7;
+}
+
+/* ================= TOOLS ================= */
+
+.tools-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.tool{
+    background:rgba(12,12,28,.8);
+    border:1px solid rgba(0,220,255,.2);
+    border-radius:22px;
+    padding:25px;
+    min-height:300px;
+    display:flex;
+    flex-direction:column;
+}
+
+.tool h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.tool-desc{
+    color:#888;
+    font-size:14px;
+    line-height:1.6;
+    min-height:45px;
+}
+
+.tool input{
+    width:100%;
+    padding:13px;
+    margin-top:12px;
+    background:#080812;
+    color:white;
+    border:1px solid #333;
+    border-radius:10px;
+    outline:none;
+}
+
+.tool input:focus{
+    border-color:#00d9ff;
+    box-shadow:0 0 12px rgba(0,220,255,.2);
+}
+
+.tool button,
+.game button{
+    width:100%;
+    padding:13px;
+    margin-top:12px;
+    background:linear-gradient(90deg,#6200ff,#009dff);
+    border:0;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    transition:.25s;
+}
+
+.tool button:hover,
+.game button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(0,200,255,.3);
+}
+
+.result{
+    margin-top:15px;
+    min-height:65px;
+    padding:14px;
+    border-radius:12px;
+    background:rgba(0,0,0,.3);
+    border:1px solid rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    line-height:1.6;
+    color:#d9d9ff;
+    overflow-wrap:anywhere;
+}
+
+.big-number{
+    font-size:45px;
+    font-weight:bold;
+    color:#00eaff;
+    text-shadow:0 0 20px #00eaff;
+}
+
+/* ================= GAMES ================= */
+
+.games-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.game{
+    background:rgba(10,10,25,.85);
+    border:1px solid rgba(140,0,255,.3);
+    border-radius:22px;
+    padding:25px;
+    min-height:390px;
+    text-align:center;
+    transition:.3s;
+}
+
+.game:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(120,0,255,.15);
+}
+
+.game h3{
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.game p{
+    color:#888;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.game-result{
+    margin-top:18px;
+    min-height:90px;
+    padding:15px;
+    border-radius:14px;
+    background:rgba(0,0,0,.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    line-height:1.7;
+}
+
+/* ================= REACTION ================= */
+
+#reactionArea{
+    margin-top:15px;
+    height:150px;
+    border-radius:15px;
+    background:#151525;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:#aaa;
+    transition:.2s;
+    user-select:none;
+    border:1px solid #28283c;
+}
+
+#reactionArea.ready{
+    background:#00a83b;
+    color:white;
+    box-shadow:
+        0 0 25px #00ff66,
+        inset 0 0 25px rgba(255,255,255,.2);
+    animation:readyPulse .7s infinite alternate;
+}
+
+@keyframes readyPulse{
+    from{transform:scale(1)}
+    to{transform:scale(1.02)}
+}
+
+/* ================= TARGET ================= */
+
+.target-area{
+    margin-top:15px;
+    height:150px;
+    position:relative;
+    border-radius:15px;
+    background:#090914;
+    border:1px solid #222;
+    overflow:hidden;
+}
+
+.target{
+    width:38px;
+    height:38px;
+    background:#ff00dd;
+    border-radius:50%;
+    position:absolute;
+    cursor:pointer;
+    box-shadow:0 0 25px #ff00dd;
+    display:none;
+    animation:targetPop .2s ease-out;
+}
+
+@keyframes targetPop{
+    from{
+        transform:scale(0);
+    }
+    to{
+        transform:scale(1);
+    }
+}
+
+/* ================= GUESS ================= */
+
+.guess-input{
+    width:100%;
+    padding:13px;
+    margin-top:15px;
+    background:#07070f;
+    color:white;
+    border:1px solid #333;
+    border-radius:10px;
+    text-align:center;
+    font-size:18px;
+}
+
+/* ================= MEMORY ================= */
+
+.memory-display{
+    margin-top:15px;
+    min-height:90px;
+    border-radius:14px;
+    background:#07070f;
+    border:1px solid #25253a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    letter-spacing:8px;
+    color:#00eaff;
+    text-shadow:0 0 15px #00eaff;
+}
+
+/* ================= DISCORD ================= */
+
+.discord{
+    text-align:center;
+    padding:80px 20px;
+    margin-top:30px;
+    border-top:1px solid rgba(150,0,255,.15);
+    border-bottom:1px solid rgba(150,0,255,.15);
+    background:rgba(80,0,140,.05);
+}
+
+.discord h2{
+    font-size:38px;
+    margin-bottom:12px;
+    text-shadow:0 0 20px #8b00ff;
+}
+
+.discord p{
+    color:#999;
+    margin-bottom:25px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    color:#666;
+    margin-top:50px;
+}
+
+footer span{
+    color:#9c4dff;
+}
+
+
+/* ================= NEXUS CORE / COMMUNITY ================= */
+.core-text{
+    position:relative;
+    z-index:3;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    letter-spacing:3px;
+    font-weight:900;
+    color:#fff;
+    text-align:center;
+    background:radial-gradient(circle,rgba(105,0,255,.25),rgba(5,5,18,.2) 65%,transparent 70%);
+    text-shadow:0 0 12px #fff,0 0 28px #00eaff,0 0 45px #8b00ff;
+    transition:transform .35s ease,letter-spacing .35s ease;
+    cursor:pointer;
+}
+.core-text:hover,.core-text:focus-visible{
+    transform:scale(1.08);
+    letter-spacing:5px;
+    outline:none;
+}
+.core-community-panel{
+    position:absolute;
+    left:calc(100% + 38px);
+    top:50%;
+    width:290px;
+    padding:20px 22px;
+    border:1px solid rgba(0,234,255,.28);
+    border-radius:18px;
+    background:rgba(8,8,24,.9);
+    box-shadow:0 0 35px rgba(80,0,255,.18);
+    opacity:0;
+    transform:translateX(-15px) translateY(-50%);
+    pointer-events:none;
+    transition:.35s ease;
+    text-align:left;
+    z-index:10;
+}
+.ai-core:hover .core-community-panel,.ai-core:focus-within .core-community-panel{
+    opacity:1;
+    transform:translateX(0) translateY(-50%);
+}
+.core-panel-kicker{
+    display:block;
+    font-size:10px;
+    letter-spacing:2px;
+    color:#00eaff;
+    margin-bottom:7px;
+}
+.core-community-panel strong{display:block;font-size:20px;margin-bottom:7px}
+.core-community-panel p{color:#a9a9c5;line-height:1.65;font-size:13px}
+
+/* ================= DISCORD REFINEMENT ================= */
+.discord-copy .badge{margin-bottom:10px}
+.discord-quote{
+    margin-top:20px;
+    padding:15px 18px;
+    border-left:2px solid #a000ff;
+    color:#ddd;
+    background:rgba(130,0,255,.06);
+    border-radius:0 12px 12px 0;
+    line-height:1.65;
+    font-style:italic;
+}
+.discord-info{
+    position:relative;
+    overflow:hidden;
+    min-height:170px;
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+    animation:communityFloat 4.5s ease-in-out infinite;
+}
+.discord-info:nth-child(2){animation-delay:.35s}
+.discord-info:nth-child(3){animation-delay:.7s}
+.discord-info:hover{
+    transform:translateY(-9px) scale(1.015);
+    box-shadow:0 18px 45px rgba(120,0,255,.18);
+    border-color:rgba(0,234,255,.42);
+}
+.discord-info::after{
+    content:"";
+    position:absolute;
+    width:130px;height:130px;
+    right:-60px;bottom:-70px;
+    border-radius:50%;
+    background:rgba(0,234,255,.07);
+    filter:blur(5px);
+}
+@keyframes communityFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-5px)}
+}
+.discord-bottom-note{
+    max-width:850px;
+    margin:5px auto 28px;
+    padding:20px 24px;
+    text-align:center;
+    border:1px solid rgba(160,0,255,.2);
+    border-radius:18px;
+    background:rgba(12,8,28,.58);
+}
+.discord-bottom-note span{display:block;font-size:20px;font-weight:800;margin-bottom:7px}
+.discord-bottom-note p{color:#9999b7;line-height:1.7;margin:0}
+
+@media(max-width:850px){
+    .core-community-panel{
+        left:50%;top:calc(100% + 35px);
+        transform:translateX(-50%) translateY(-5px);
+        width:min(290px,80vw);
+        text-align:center;
+    }
+    .ai-core:hover .core-community-panel,.ai-core:focus-within .core-community-panel{
+        transform:translateX(-50%) translateY(0);
+    }
+    .ai-section{min-height:650px}
+    .discord{width:94%;margin-top:95px}
+    .discord-hero{grid-template-columns:1fr;gap:20px}
+    .discord-gallery,.discord-info-grid{grid-template-columns:1fr}
+    .discord-copy{padding:24px}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    nav{
+        padding:12px 15px;
+    }
+
+    .nav-links a{
+        display:none;
+    }
+
+    .cards,
+    .tools-grid,
+    .games-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:65px;
+    }
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+    .ai-core{
+        width:170px;
+        height:170px;
+    }
+
+    .ai-core::before{
+        width:220px;
+        height:220px;
+    }
+
+    .ai-core::after{
+        width:260px;
+        height:260px;
+    }
+
+    .ai-ring{
+        width:310px;
+        height:310px;
+    }
+}
+
+/* ================= INTERNAL PAGES / SPA ================= */
+
+[data-page-section]{
+    display:none;
+}
+
+body[data-page="home"] [data-page-section="home"],
+body[data-page="tools"] [data-page-section="tools"],
+body[data-page="games"] [data-page-section="games"],
+body[data-page="discord"] [data-page-section="discord"]{
+    display:block;
+    animation:pageIn .45s ease both;
+}
+
+@keyframes pageIn{
+    from{opacity:0; transform:translateY(18px)}
+    to{opacity:1; transform:translateY(0)}
+}
+
+.page-back{
+    appearance:none;
+    border:1px solid rgba(160,80,255,.4);
+    background:rgba(10,8,28,.75);
+    color:#eee;
+    padding:10px 16px;
+    border-radius:12px;
+    cursor:pointer;
+    font:inherit;
+    transition:.25s;
+}
+
+.page-back:hover{
+    transform:translateX(-3px);
+    box-shadow:0 0 22px rgba(140,0,255,.25);
+}
+
+.internal-page-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.page-tag{
+    color:#8be9ff;
+    font-size:12px;
+    letter-spacing:3px;
+    opacity:.8;
+}
+
+.discord{
+    width:92%;
+    max-width:1150px;
+    margin:120px auto 70px;
+    padding:35px 0;
+    text-align:left;
+}
+
+.discord-hero{
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:30px;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.discord-copy{
+    padding:30px;
+    border:1px solid rgba(140,0,255,.3);
+    border-radius:25px;
+    background:rgba(10,10,25,.72);
+    box-shadow:0 20px 60px rgba(60,0,120,.12);
+}
+
+.discord-copy h2{
+    font-size:clamp(32px,5vw,58px);
+    margin:15px 0 10px;
+    text-shadow:0 0 25px rgba(140,0,255,.4);
+}
+
+.discord-copy p{
+    color:#b9b9d4;
+    line-height:1.8;
+    max-width:700px;
+}
+
+.discord-extra{
+    margin-top:8px;
+}
+
+.discord-logo-card{
+    min-height:260px;
+    border-radius:25px;
+    border:1px solid rgba(88,101,242,.5);
+    background:
+        radial-gradient(circle at 50% 35%,rgba(88,101,242,.35),transparent 45%),
+        rgba(8,8,22,.9);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    box-shadow:0 0 50px rgba(88,101,242,.12);
+}
+
+.discord-mark{
+    width:105px;
+    height:80px;
+    border-radius:38% 38% 45% 45%;
+    background:#5865F2;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    box-shadow:0 0 35px rgba(88,101,242,.55);
+}
+
+.discord-logo-card span{
+    letter-spacing:5px;
+    font-weight:800;
+    color:#dfe2ff;
+}
+
+.discord-gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin:25px 0;
+}
+
+.discord-image-card{
+    overflow:hidden;
+    border-radius:20px;
+    border:1px solid rgba(88,101,242,.35);
+    background:rgba(8,8,20,.85);
+    transition:.3s;
+}
+
+.discord-image-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 45px rgba(88,101,242,.18);
+}
+
+.discord-image-card img{
+    width:100%;
+    aspect-ratio:16/10;
+    display:block;
+    object-fit:cover;
+    background:#0b0b18;
+}
+
+.image-caption{
+    padding:13px 15px;
+    color:#d8d8f3;
+    font-weight:600;
+}
+
+.discord-info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin:25px 0 35px;
+}
+
+.discord-info{
+    padding:22px;
+    border-radius:18px;
+    background:rgba(10,10,25,.75);
+    border:1px solid rgba(140,0,255,.25);
+}
+
+.discord-info > span{
+    font-size:28px;
+}
+
+.discord-info h3{
+    margin:10px 0 5px;
+}
+
+.discord-info p{
+    color:#8888a8;
+    line-height:1.6;
+    margin:0;
+}
+
+.discord .main-btn{
+    display:inline-flex;
+    margin-top:8px;
+}
+
+.nav-links a.active{
+    color:#fff;
+    text-shadow:0 0 14px #9d5cff;
+}
+
+@media(max-width:800px){
+    .discord-hero{
+        grid-template-columns:1fr;
+    }
+
+    .discord-gallery,
+    .discord-info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .internal-page-head{
+        margin-top:10px;
+    }
+
+    .discord{
+        margin-top:105px;
+    }
+}
+
+
+/* ================= NEXUS CORE CENTER FIX ================= */
+.ai-section[data-page-section="home"]{
+    width:100%;
+    min-height:560px;
+    margin:0;
+    padding:40px 20px;
+    box-sizing:border-box;
+    display:flex !important;
+    flex-direction:row;
+    justify-content:center !important;
+    align-items:center !important;
+    text-align:center;
+    position:relative;
+}
+.ai-section[data-page-section="home"] .ai-core{
+    position:relative;
+    left:auto;
+    right:auto;
+    top:auto;
+    bottom:auto;
+    margin:0 auto;
+    flex:0 0 220px;
+}
+@media(max-width:850px){
+    .ai-section[data-page-section="home"]{
+        min-height:560px;
+        padding:40px 15px;
+    }
+    .ai-section[data-page-section="home"] .ai-core{
+        flex-basis:170px;
+        margin:0 auto;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND EFFECTS -->
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+<div class="particles" id="particles"></div>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">NEXUS</div>
+
+    <div class="nav-links">
+        <a href="#home" data-page-link="home" data-i18n="home">Home</a>
+        <a href="#tools" data-page-link="tools" data-i18n="tools">Tools</a>
+        <a href="#games" data-page-link="games" data-i18n="games">Games</a>
+        <a href="#discord" data-page-link="discord" data-i18n="discord">Discord</a>
+
+        <button class="lang-btn" data-action="toggleLanguage">
+            عربي
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home" data-page-section="home">
+
+    <div class="badge" data-i18n="badge">
+        ⚡ FUTURE EXPERIENCE
+    </div>
+
+    <h1>NEXUS</h1>
+
+    <p data-i18n="heroText">
+        A futuristic gaming space with interactive tools,
+        mini games and a unique neon experience.
+    </p>
+
+    <a href="#games" data-page-link="games" class="main-btn" data-i18n="start">
+        🚀 Start Experience
+    </a>
+
+</section>
+
+<!-- AI / ANIMATED CORE -->
+<section class="ai-section" data-page-section="home">
+
+    <div class="ai-core">
+
+        <div class="ai-ring"></div>
+
+        <div class="core-text" tabindex="0" aria-label="Nexus">
+            NEXUS
+        </div>
+
+        <div class="core-community-panel">
+            <span class="core-panel-kicker">NEXUS COMMUNITY</span>
+            <strong data-i18n="coreCommunityTitle">Your gaming space.</strong>
+            <p data-i18n="coreCommunityText">Gaming, chat, ideas and a community that keeps moving forward.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="section" data-page-section="home">
+
+    <div class="section-title">
+
+        <h2 data-i18n="systemTitle">
+            ⚡ SYSTEM
+        </h2>
+
+        <p data-i18n="systemDesc">
+            Explore different experiences inside NEXUS
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">🎮</div>
+
+            <h3 data-i18n="gamingZone">
+                Gaming Zone
+            </h3>
+
+            <p data-i18n="gamingDesc">
+                Small games that run directly in your browser.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🧠</div>
+
+            <h3 data-i18n="randomIdeas">
+                Random Ideas
+            </h3>
+
+            <p data-i18n="ideasDesc">
+                Generate different ideas for content and projects.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🌌</div>
+
+            <h3 data-i18n="futureUI">
+                Future UI
+            </h3>
+
+            <p data-i18n="uiDesc">
+                Neon effects, animated background and futuristic design.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools" data-page-section="tools">
+
+    <div class="section-title">
+
+        <h2 data-i18n="toolsTitle">
+            🛠️ QUICK TOOLS
+        </h2>
+
+        <p data-i18n="toolsDesc">
+            Useful interactive tools
+        </p>
+
+    </div>
+
+    <div class="tools-grid">
+
+        <!-- RANDOM IDEA -->
+        <div class="tool">
+
+            <h3 data-i18n="ideaTitle">
+                💡 Random Idea
+            </h3>
+
+            <p class="tool-desc" data-i18n="ideaDesc">
+                Generate a random idea.
+            </p>
+
+            <button data-action="randomIdea" data-i18n="generateIdea">
+                🎲 Generate Idea
+            </button>
+
+            <div class="result" id="ideaResult">
+                Your idea will appear here
+            </div>
+
+        </div>
+
+        <!-- RANDOM NUMBER -->
+        <div class="tool">
+
+            <h3 data-i18n="numberTitle">
+                🔢 Random Number
+            </h3>
+
+            <p class="tool-desc" data-i18n="numberDesc">
+                Choose a minimum and maximum number.
+            </p>
+
+            <input
+                type="number"
+                id="minNumber"
+                placeholder="Minimum"
+                value="1"
+            >
+
+            <input
+                type="number"
+                id="maxNumber"
+                placeholder="Maximum"
+                value="100"
+            >
+
+            <button data-action="randomNumber" data-i18n="generateNumber">
+                🎯 Generate Number
+            </button>
+
+            <div class="result" id="numberResult">
+                Result will appear here
+            </div>
+
+        </div>
+
+        <!-- DICE -->
+        <div class="tool">
+
+            <h3 data-i18n="diceTitle">
+                🎲 Dice
+            </h3>
+
+            <p class="tool-desc" data-i18n="diceDesc">
+                Roll a virtual dice.
+            </p>
+
+            <button data-action="rollDice" data-i18n="rollDice">
+                🎲 Roll Dice
+            </button>
+
+            <div class="result" id="diceResult">
+                <span class="big-number">?</span>
+            </div>
+
+        </div>
+
+        <!-- RANDOM COLOR -->
+        <div class="tool">
+
+            <h3 data-i18n="colorTitle">
+                🎨 Random Color
+            </h3>
+
+            <p class="tool-desc" data-i18n="colorDesc">
+                Generate a random neon color.
+            </p>
+
+            <button data-action="randomColor" data-i18n="generateColor">
+                🌈 Generate Color
+            </button>
+
+            <div class="result" id="colorPreview">
+                #000000
+            </div>
+
+        </div>
+
+        <!-- RANDOM CODE -->
+        <div class="tool">
+
+            <h3 data-i18n="codeTitle">
+                🔐 Random Code
+            </h3>
+
+            <p class="tool-desc" data-i18n="codeDesc">
+                Generate a random code.
+            </p>
+
+            <button data-action="generateCode" data-i18n="generateCode">
+                ⚡ Generate Code
+            </button>
+
+            <div class="result" id="codeResult">
+                Code will appear here
+            </div>
+
+        </div>
+
+        <!-- TIMER -->
+        <div class="tool">
+
+            <h3 data-i18n="timerTitle">
+                ⏱️ Quick Timer
+            </h3>
+
+            <p class="tool-desc" data-i18n="timerDesc">
+                Start a quick countdown.
+            </p>
+
+            <input
+                type="number"
+                id="timerInput"
+                placeholder="Seconds"
+                value="10"
+                min="1"
+            >
+
+            <button data-action="startTimer" data-i18n="startTimer">
+                ▶ Start Timer
+            </button>
+
+            <div class="result" id="timerResult">
+                10
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GAMES -->
+<section class="section" id="games" data-page-section="games">
+
+    <div class="section-title">
+
+        <h2 data-i18n="gamesTitle">
+            🎮 GAMING ZONE
+        </h2>
+
+        <p data-i18n="gamesDesc">
+            Real mini games you can play now
+        </p>
+
+    </div>
+
+    <div class="games-grid">
+
+        <!-- REACTION -->
+        <div class="game">
+
+            <h3 data-i18n="reactionTitle">
+                ⚡ Reaction Test
+            </h3>
+
+            <p data-i18n="reactionDesc">
+                Wait for green and click as fast as possible.
+            </p>
+
+            <button data-action="startReaction" data-i18n="startTest">
+                Start Test
+            </button>
+
+            <div id="reactionArea" data-i18n="pressStart">
+                Press Start
+            </div>
+
+            <div class="game-result" id="reactionResult">
+                Your reaction time will appear here
+            </div>
+
+        </div>
+
+        <!-- TARGET -->
+        <div class="game">
+
+            <h3 data-i18n="targetTitle">
+                🎯 Target Hunter
+            </h3>
+
+            <p data-i18n="targetDesc">
+                Hit the target as quickly as possible.
+            </p>
+
+            <button data-action="startTarget" data-i18n="startGame">
+                Start Game
+            </button>
+
+            <div class="target-area" id="targetArea">
+                <div class="target" id="target"></div>
+            </div>
+
+            <div class="game-result" id="targetResult">
+                Hits: 0
+            </div>
+
+        </div>
+
+        <!-- GUESS -->
+        <div class="game">
+
+            <h3 data-i18n="guessTitle">
+                🧠 Guess The Number
+            </h3>
+
+            <p data-i18n="guessDesc">
+                Guess a number between 1 and 20.
+            </p>
+
+            <input
+                class="guess-input"
+                type="number"
+                id="guessInput"
+                min="1"
+                max="20"
+                placeholder="Enter number"
+            >
+
+            <button data-action="guessNumber" data-i18n="guessButton">
+                🎯 Guess
+            </button>
+
+            <button data-action="newGuessGame" data-i18n="newGame">
+                🔄 New Game
+            </button>
+
+            <div class="game-result" id="guessResult">
+                You have 5 attempts
+            </div>
+
+        </div>
+
+        <!-- MEMORY -->
+        <div class="game">
+
+            <h3 data-i18n="memoryTitle">
+                🧠 Memory Challenge
+            </h3>
+
+            <p data-i18n="memoryDesc">
+                Memorize the sequence before it disappears.
+            </p>
+
+            <button data-action="startMemory" data-i18n="startMemory">
+                Start Challenge
+            </button>
+
+            <div class="memory-display" id="memoryDisplay">
+                ?
+            </div>
+
+            <input
+                class="guess-input"
+                id="memoryInput"
+                placeholder="Enter sequence"
+            >
+
+            <button data-action="checkMemory" data-i18n="checkMemory">
+                Check
+            </button>
+
+            <div class="game-result" id="memoryResult">
+                Your result will appear here
+            </div>
+
+        </div>
+
+        <!-- CLICK CHALLENGE -->
+        <div class="game">
+
+            <h3 data-i18n="clickTitle">
+                🖱️ Click Challenge
+            </h3>
+
+            <p data-i18n="clickDesc">
+                Click as many times as possible before time runs out.
+            </p>
+
+            <button data-action="startClickGame" data-i18n="startClick">
+                Start Challenge
+            </button>
+
+            <div class="game-result" id="clickArea">
+                0
+            </div>
+
+            <button data-action="clickCounter" data-i18n="clickButton">
+                CLICK!
+            </button>
+
+            <div class="game-result" id="clickResult">
+                Ready
+            </div>
+
+        </div>
+
+        <!-- SPEED NUMBER -->
+        <div class="game">
+
+            <h3 data-i18n="speedTitle">
+                🔢 Speed Numbers
+            </h3>
+
+            <p data-i18n="speedDesc">
+                Type the shown number as quickly as possible.
+            </p>
+
+            <button data-action="startSpeedGame" data-i18n="startSpeed">
+                Start
+            </button>
+
+            <div class="memory-display" id="speedNumber">
+                ?
+            </div>
+
+            <input
+                class="guess-input"
+                id="speedInput"
+                type="number"
+                placeholder="Type number"
+            >
+
+            <button data-action="checkSpeedGame" data-i18n="checkSpeed">
+                Check
+            </button>
+
+            <div class="game-result" id="speedResult">
+                Ready
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DISCORD -->
+
+<section class="discord" id="discord" data-page-section="discord">
+
+    <div class="internal-page-head">
+        <button class="page-back" type="button" data-page-link="home">← <span data-i18n="backHome">Back Home</span></button>
+        <div class="page-tag">NEXUS / DISCORD</div>
+    </div>
+
+    <div class="discord-hero">
+        <div class="discord-copy">
+            <div class="badge" data-i18n="communityBadge">💜 NEXUS COMMUNITY</div>
+            <h2 data-i18n="discordTitle">💜 NEXUS Community</h2>
+            <p data-i18n="discordDesc">Join the community and connect with everyone.</p>
+            <p class="discord-extra" data-i18n="discordExtra">
+                A place for gaming, chatting, sharing updates and meeting other members.
+            </p>
+        </div>
+        <div class="discord-logo-card" aria-hidden="true">
+            <div class="discord-mark">☁</div>
+            <span>DISCORD</span>
+        </div>
+    </div>
+
+    <div class="discord-gallery">
+        <div class="discord-image-card">
+            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6abeb9f1b640925d76d940d4_leadupdated2.webp" alt="Discord community interface preview">
+            <div class="image-caption" data-i18n="discordImage1">Community & conversations</div>
+        </div>
+        <div class="discord-image-card">
+            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6a91b56007b07b1100448f85_Wumpus_Pose_03_Pointing-Right.webp" alt="Discord Wumpus community artwork">
+            <div class="image-caption" data-i18n="discordImage2">Discord community style</div>
+        </div>
+        <div class="discord-image-card">
+            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6a9147353d1907a23b2fbfd3_Clyde_Pose02_Point-Left.webp" alt="Discord Clyde artwork">
+            <div class="image-caption" data-i18n="discordImage3">Connect & hang out</div>
+        </div>
+    </div>
+
+    <div class="discord-info-grid">
+        <div class="discord-info">
+            <span>🎮</span>
+            <h3 data-i18n="discordFeature1Title">Gaming</h3>
+            <p data-i18n="discordFeature1">Talk with the community while playing.</p>
+        </div>
+        <div class="discord-info">
+            <span>💬</span>
+            <h3 data-i18n="discordFeature2Title">Chat</h3>
+            <p data-i18n="discordFeature2">Share messages, ideas and updates.</p>
+        </div>
+        <div class="discord-info">
+            <span>👥</span>
+            <h3 data-i18n="discordFeature3Title">Community</h3>
+            <p data-i18n="discordFeature3">Meet people and stay connected.</p>
+        </div>
+    </div>
+
+    <p data-i18n="discordDesc">
+        Join the community and connect with everyone.
+    </p>
+
+    <a
+        class="main-btn"
+        href="https://discord.gg/wWbzezb64"
+        target="_blank"
+        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        data-i18n="joinDiscord"
+    >
+        💬 Join Discord
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 <span>NEXUS</span> —
+        <span data-i18n="footerText">
+            Future Gaming Experience
+        </span>
+    </p>
+
+</footer>
+
+<script nonce="P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo">
+
+/* ================= PARTICLES ================= */
+
+const particles = document.getElementById("particles");
+
+for(let i = 0; i < 35; i++){
+
+    const p = document.createElement("div");
+
+    p.className = "particle";
+
+    p.style.left = Math.random() * 100 + "%";
+
+    p.style.animationDuration =
+        (5 + Math.random() * 10) + "s";
+
+    p.style.animationDelay =
+        Math.random() * 10 + "s";
+
+    particles.appendChild(p);
+}
+
+
+/* ================= LANGUAGE ================= */
+
+let currentLanguage = localStorage.getItem("nexusLanguage") === "ar" ? "ar" : "en";
+
+const translations = {
+
+en:{
+
+home:"Home",
+tools:"Tools",
+games:"Games",
+discord:"Discord",
+
+backHome:"Back Home",
+communityBadge:"💜 NEXUS COMMUNITY",
+coreCommunityTitle:"Your gaming space.",
+coreCommunityText:"Gaming, chat, ideas and a community that keeps moving forward.",
+discordExtra:"A place for gaming, chatting, sharing updates and meeting other members.",
+discordQuote:"“Play together. Create together. Keep moving forward.”",
+discordBottomTitle:"Built for gamers, creators and friends.",
+discordBottomText:"NEXUS brings the energy of the game into one place: play, chat, share and discover something new.",
+discordImage1:"Community & conversations",
+discordImage2:"Discord community style",
+discordImage3:"Connect & hang out",
+discordFeature1Title:"Gaming",
+discordFeature1:"Talk with the community while playing.",
+discordFeature2Title:"Chat",
+discordFeature2:"Share messages, ideas and updates.",
+discordFeature3Title:"Community",
+discordFeature3:"Meet people and stay connected.",
+
+badge:"⚡ FUTURE EXPERIENCE",
+
+heroText:
+"A futuristic gaming space with interactive tools, mini games and a unique neon experience.",
+
+start:"🚀 Start Experience",
+
+systemTitle:"⚡ SYSTEM",
+
+systemDesc:
+"Explore different experiences inside NEXUS",
+
+gamingZone:"Gaming Zone",
+
+gamingDesc:
+"Small games that run directly in your browser.",
+
+randomIdeas:"Random Ideas",
+
+ideasDesc:
+"Generate different ideas for content and projects.",
+
+futureUI:"Future UI",
+
+uiDesc:
+"Neon effects, animated background and futuristic design.",
+
+toolsTitle:"🛠️ QUICK TOOLS",
+
+toolsDesc:
+"Useful interactive tools",
+
+ideaTitle:"💡 Random Idea",
+
+ideaDesc:
+"Generate a random idea.",
+
+generateIdea:"🎲 Generate Idea",
+
+numberTitle:"🔢 Random Number",
+
+numberDesc:
+"Choose a minimum and maximum number.",
+
+generateNumber:"🎯 Generate Number",
+
+diceTitle:"🎲 Dice",
+
+diceDesc:
+"Roll a virtual dice.",
+
+rollDice:"🎲 Roll Dice",
+
+colorTitle:"🎨 Random Color",
+
+colorDesc:
+"Generate a random neon color.",
+
+generateColor:"🌈 Generate Color",
+
+codeTitle:"🔐 Random Code",
+
+codeDesc:
+"Generate a random code.",
+
+generateCode:"⚡ Generate Code",
+
+timerTitle:"⏱️ Quick Timer",
+
+timerDesc:
+"Start a quick countdown.",
+
+startTimer:"▶ Start Timer",
+
+gamesTitle:"🎮 GAMING ZONE",
+
+gamesDesc:
+"Real mini games you can play now",
+
+reactionTitle:"⚡ Reaction Test",
+
+reactionDesc:
+"Wait for green and click as fast as possible.",
+
+startTest:"Start Test",
+
+pressStart:"Press Start",
+
+targetTitle:"🎯 Target Hunter",
+
+targetDesc:
+"Hit the target as quickly as possible.",
+
+startGame:"Start Game",
+
+guessTitle:"🧠 Guess The Number",
+
+guessDesc:
+"Guess a number between 1 and 20.",
+
+guessButton:"🎯 Guess",
+
+newGame:"🔄 New Game",
+
+memoryTitle:"🧠 Memory Challenge",
+
+memoryDesc:
+"Memorize the sequence before it disappears.",
+
+startMemory:"Start Challenge",
+
+checkMemory:"Check",
+
+clickTitle:"🖱️ Click Challenge",
+
+clickDesc:
+"Click as many times as possible before time runs out.",
+
+startClick:"Start Challenge",
+
+clickButton:"CLICK!",
+
+speedTitle:"🔢 Speed Numbers",
+
+speedDesc:
+"Type the shown number as quickly as possible.",
+
+startSpeed:"Start",
+
+checkSpeed:"Check",
+
+discordTitle:"💜 NEXUS Community",
+
+discordDesc:
+"Join the community and connect with everyone.",
+
+joinDiscord:"💬 Join Discord",
+
+footerText:
+"Future Gaming Experience"
+
+},
+
+ar:{
+
+home:"الرئيسية",
+tools:"الأدوات",
+games:"الألعاب",
+discord:"ديسكورد",
+
+backHome:"العودة للرئيسية",
+communityBadge:"💜 مجتمع NEXUS",
+coreCommunityTitle:"مساحتك للجيمينج.",
+coreCommunityText:"جيمينج ودردشة وأفكار ومجتمع بيتطور معاك خطوة بخطوة.",
+discordExtra:"مكان للجيمينج والدردشة ومشاركة التحديثات والتعرف على أعضاء المجتمع.",
+discordQuote:"“العب مع بعض، اصنع مع بعض، وخليك دايمًا بتتقدم.”",
+discordBottomTitle:"مكان للجيمرز والمبدعين والأصحاب.",
+discordBottomText:"NEXUS بيجمع طاقة الجيم في مكان واحد: العب، اتكلم، شارك واكتشف حاجة جديدة.",
+discordImage1:"المجتمع والمحادثات",
+discordImage2:"ستايل مجتمع ديسكورد",
+discordImage3:"تواصل واقضي وقتك مع المجتمع",
+discordFeature1Title:"الألعاب",
+discordFeature1:"اتكلم مع المجتمع وإنت بتلعب.",
+discordFeature2Title:"الدردشة",
+discordFeature2:"شارك الرسائل والأفكار والتحديثات.",
+discordFeature3Title:"المجتمع",
+discordFeature3:"اتعرف على ناس وخليك متواصل.",
+
+badge:"⚡ تجربة المستقبل",
+
+heroText:
+"عالم ألعاب مستقبلي فيه أدوات تفاعلية وألعاب صغيرة وتجربة نيون مختلفة.",
+
+start:"🚀 ابدأ التجربة",
+
+systemTitle:"⚡ النظام",
+
+systemDesc:
+"اكتشف تجارب مختلفة داخل NEXUS",
+
+gamingZone:"منطقة الألعاب",
+
+gamingDesc:
+"ألعاب صغيرة تشتغل مباشرة من المتصفح.",
+
+randomIdeas:"أفكار عشوائية",
+
+ideasDesc:
+"طلّع أفكار مختلفة للمحتوى والمشاريع.",
+
+futureUI:"واجهة مستقبلية",
+
+uiDesc:
+"تأثيرات نيون وخلفية متحركة وتصميم مستقبلي.",
+
+toolsTitle:"🛠️ الأدوات السريعة",
+
+toolsDesc:
+"أدوات تفاعلية مختلفة",
+
+ideaTitle:"💡 فكرة عشوائية",
+
+ideaDesc:
+"طلّع فكرة عشوائية.",
+
+generateIdea:"🎲 طلّع فكرة",
+
+numberTitle:"🔢 رقم عشوائي",
+
+numberDesc:
+"حدد أقل وأكبر رقم.",
+
+generateNumber:"🎯 اختار الرقم",
+
+diceTitle:"🎲 النرد",
+
+diceDesc:
+"ارمي النرد.",
+
+rollDice:"🎲 ارمي النرد",
+
+colorTitle:"🎨 لون عشوائي",
+
+colorDesc:
+"ولّد لون نيون عشوائي.",
+
+generateColor:"🌈 ولّد لون",
+
+codeTitle:"🔐 كود عشوائي",
+
+codeDesc:
+"ولّد كود عشوائي.",
+
+generateCode:"⚡ ولّد كود",
+
+timerTitle:"⏱️ مؤقت سريع",
+
+timerDesc:
+"شغّل عداد تنازلي.",
+
+startTimer:"▶ ابدأ المؤقت",
+
+gamesTitle:"🎮 منطقة الألعاب",
+
+gamesDesc:
+"ألعاب فعلية تقدر تلعبها دلوقتي",
+
+reactionTitle:"⚡ اختبار سرعة رد الفعل",
+
+reactionDesc:
+"استنى اللون الأخضر واضغط بأسرع ما تقدر.",
+
+startTest:"ابدأ الاختبار",
+
+pressStart:"اضغط ابدأ",
+
+targetTitle:"🎯 صائد الأهداف",
+
+targetDesc:
+"اضرب الهدف بأسرع وقت ممكن.",
+
+startGame:"ابدأ اللعبة",
+
+guessTitle:"🧠 خمن الرقم",
+
+guessDesc:
+"خمن رقم من 1 إلى 20.",
+
+guessButton:"🎯 خمن",
+
+newGame:"🔄 لعبة جديدة",
+
+memoryTitle:"🧠 تحدي الذاكرة",
+
+memoryDesc:
+"احفظ التسلسل قبل ما يختفي.",
+
+startMemory:"ابدأ التحدي",
+
+checkMemory:"تحقق",
+
+clickTitle:"🖱️ تحدي الضغط",
+
+clickDesc:
+"اضغط أكبر عدد ممكن قبل انتهاء الوقت.",
+
+startClick:"ابدأ التحدي",
+
+clickButton:"اضغط!",
+
+speedTitle:"🔢 أرقام السرعة",
+
+speedDesc:
+"اكتب الرقم الظاهر بأسرع ما تقدر.",
+
+startSpeed:"ابدأ",
+
+checkSpeed:"تحقق",
+
+discordTitle:"💜 مجتمع NEXUS",
+
+discordDesc:
+"انضم للمجتمع واتواصل مع الناس.",
+
+joinDiscord:"💬 انضم إلى Discord",
+
+footerText:
+"تجربة ألعاب المستقبل"
+
+}
+
+};
+
+
+function applyLanguage(){
+
+    const lang = translations[currentLanguage];
+
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if(lang[key]) element.textContent = lang[key];
+    });
+
+    document.documentElement.lang = currentLanguage;
+    document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
+
+    const langButton = document.querySelector(".lang-btn");
+    if(langButton){
+        langButton.textContent = currentLanguage === "en" ? "عربي" : "English";
+        langButton.setAttribute("aria-label", currentLanguage === "en" ? "Switch to Arabic" : "Switch to English");
+    }
+    localStorage.setItem("nexusLanguage", currentLanguage);
+}
+
+function toggleLanguage(){
+    currentLanguage = currentLanguage === "en" ? "ar" : "en";
+    applyLanguage();
+}
+
+
+/* ================= RANDOM IDEAS ================= */
+
+const ideas = [
+
+"🎮 Build a reaction speed game.",
+"🤖 Create a futuristic AI assistant.",
+"🌌 Create an animated space background.",
+"🎨 Build a neon color generator.",
+"🧠 Create a quiz game.",
+"🎯 Build a target shooting game.",
+"🏆 Add a leaderboard system.",
+"⏱️ Create a speed challenge.",
+"🔐 Build a random code generator.",
+"🕹️ Create a maze game.",
+"👾 Create a game against Bots.",
+"🚀 Build a space racing game.",
+"💻 Create a Cyberpunk dashboard.",
+"🌈 Build a dynamic color website.",
+"🎵 Create a music visualizer.",
+"📱 Build a full mobile version.",
+"🔥 Add daily challenges.",
+"🧩 Create a puzzle game.",
+"⚔️ Create a small arena game.",
+"🏁 Build a racing mini game.",
+"👻 Create a light horror game.",
+"🛰️ Build a spaceship control panel.",
+"🔮 Create a random prediction tool.",
+"💡 Build a content idea generator."
+
+];
+
+function randomIdea(){
+
+    const result =
+        ideas[
+            Math.floor(
+                Math.random() * ideas.length
+            )
+        ];
+
+    document.getElementById("ideaResult")
+        .textContent = result;
+}
+
+
+/* ================= RANDOM NUMBER ================= */
+
+function randomNumber(){
+
+    let min =
+        parseInt(
+            document.getElementById("minNumber").value
+        );
+
+    let max =
+        parseInt(
+            document.getElementById("maxNumber").value
+        );
+
+    if(isNaN(min) || isNaN(max)){
+
+        document.getElementById("numberResult")
+            .textContent =
+            currentLanguage === "ar"
+            ? "اكتب الرقمين الأول."
+            : "Enter both numbers.";
+
+        return;
+    }
+
+    if(min > max){
+
+        const temp = min;
+
+        min = max;
+        max = temp;
+    }
+
+    const result =
+        Math.floor(
+            Math.random() * (max - min + 1)
+        ) + min;
+
+    document.getElementById("numberResult")
+        .innerHTML =
+        `<span class="big-number">${result}</span>`;
+}
+
+
+/* ================= DICE ================= */
+
+function rollDice(){
+
+    const number =
+        Math.floor(
+            Math.random() * 6
+        ) + 1;
+
+    document.getElementById("diceResult")
+        .innerHTML =
+        `<span class="big-number">${number}</span>`;
+}
+
+
+/* ================= COLOR ================= */
+
+function randomColor(){
+
+    const letters =
+        "0123456789ABCDEF";
+
+    let color = "#";
+
+    for(let i=0;i<6;i++){
+
+        color +=
+            letters[
+                Math.floor(
+                    Math.random() * 16
+                )
+            ];
+    }
+
+    const box =
+        document.getElementById("colorPreview");
+
+    box.style.background = color;
+
+    box.style.boxShadow =
+        `0 0 25px ${color}`;
+
+    box.textContent = color;
+}
+
+
+/* ================= RANDOM CODE ================= */
+
+function generateCode(){
+
+    const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    let code = "";
+
+    for(let i=0;i<8;i++){
+
+        code +=
+            chars[
+                Math.floor(
+                    Math.random() * chars.length
+                )
+            ];
+    }
+
+    document.getElementById("codeResult")
+        .textContent = code;
+}
+
+
+/* ================= TIMER ================= */
+
+let timerInterval;
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+    let seconds =
+        parseInt(
+            document.getElementById("timerInput").value
+        );
+
+    if(isNaN(seconds) || seconds <= 0){
+        seconds = 10;
+    }
+
+    const display =
+        document.getElementById("timerResult");
+
+    display.textContent = seconds;
+
+    timerInterval =
+        setInterval(() => {
+
+            seconds--;
+
+            display.textContent = seconds;
+
+            if(seconds <= 0){
+
+                clearInterval(timerInterval);
+
+                display.textContent =
+                    currentLanguage === "ar"
+                    ? "انتهى الوقت!"
+                    : "Time's up!";
+
+            }
+
+        },1000);
+}
+
+
+/* ================= REACTION GAME ================= */
+
+let reactionTimeout;
+let reactionStart;
+let reactionRunning = false;
+
+function startReaction(){
+
+    const area =
+        document.getElementById("reactionArea");
+
+    const result =
+        document.getElementById("reactionResult");
+
+    clearTimeout(reactionTimeout);
+
+    reactionRunning = false;
+
+    area.classList.remove("ready");
+
+    area.textContent =
+        currentLanguage === "ar"
+        ? "استنى..."
+        : "Wait...";
+
+    result.textContent =
+        currentLanguage === "ar"
+        ? "استنى اللون الأخضر!"
+        : "Wait for green!";
+
+    const delay =
+        Math.floor(
+            Math.random() * 3500
+        ) + 1500;
+
+    reactionTimeout =
+        setTimeout(() => {
+
+            reactionRunning = true;
+
+            reactionStart =
+                performance.now();
+
+            area.classList.add("ready");
+
+            area.textContent =
+                currentLanguage === "ar"
+                ? "اضغط دلوقتي!"
+                : "CLICK NOW!";
+
+        },delay);
+}
+
+
+document
+.getElementById("reactionArea")
+.addEventListener("click",function(){
+
+    if(!reactionRunning){
+
+        if(
+            this.textContent === "استنى..." ||
+            this.textContent === "Wait..."
+        ){
+
+            this.textContent =
+                currentLanguage === "ar"
+                ? "بدري! 😅"
+                : "Too early! 😅";
+
+        }
+
+        return;
+    }
+
+    const time =
+        Math.round(
+            performance.now() -
+            reactionStart
+        );
+
+    reactionRunning = false;
+
+    this.classList.remove("ready");
+
+    this.textContent =
+        currentLanguage === "ar"
+        ? "اضغط ابدأ للمحاولة التالية"
+        : "Press Start for another try";
+
+    document
+    .getElementById("reactionResult")
+    .textContent =
+        currentLanguage === "ar"
+        ? `⚡ وقت رد فعلك: ${time} ms`
+        : `⚡ Reaction time: ${time} ms`;
+
+});
+
+
+/* ================= TARGET GAME ================= */
+
+let hits = 0;
+
+function startTarget(){
+
+    hits = 0;
+
+    document
+    .getElementById("targetResult")
+    .textContent =
+        "Hits: 0";
+
+    moveTarget();
+}
+
+function moveTarget(){
+
+    const area =
+        document.getElementById("targetArea");
+
+    const target =
+        document.getElementById("target");
+
+    const maxX =
+        area.clientWidth - 38;
+
+    const maxY =
+        area.clientHeight - 38;
+
+    const x =
+        Math.random() * maxX;
+
+    const y =
+        Math.random() * maxY;
+
+    target.style.left =
+        x + "px";
+
+    target.style.top =
+        y + "px";
+
+    target.style.display =
+        "block";
+}
+
+document
+.getElementById("target")
+.addEventListener("click",function(){
+
+    hits++;
+
+    document
+    .getElementById("targetResult")
+    .textContent =
+        `🎯 Hits: ${hits}`;
+
+    moveTarget();
+
+});
+
+
+/* ================= GUESS GAME ================= */
+
+let secretNumber;
+let attempts;
+
+function newGuessGame(){
+
+    secretNumber =
+        Math.floor(
+            Math.random() * 20
+        ) + 1;
+
+    attempts = 5;
+
+    document
+    .getElementById("guessInput")
+    .value = "";
+
+    document
+    .getElementById("guessResult")
+    .textContent =
+        currentLanguage === "ar"
+        ? "عندك 5 محاولات — ابدأ التخمين!"
+        : "You have 5 attempts — start guessing!";
+}
+
+function guessNumber(){
+
+    const input =
+        document.getElementById("guessInput");
+
+    const result =
+        document.getElementById("guessResult");
+
+    const guess =
+        parseInt(input.value);
+
+    if(
+        isNaN(guess) ||
+        guess < 1 ||
+        guess > 20
+    ){
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? "اكتب رقم من 1 إلى 20."
+            : "Enter a number from 1 to 20.";
+
+        return;
+    }
+
+    attempts--;
+
+    if(guess === secretNumber){
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? `🎉 صح! الرقم كان ${secretNumber}.`
+            : `🎉 Correct! The number was ${secretNumber}.`;
+
+        return;
+    }
+
+    if(attempts <= 0){
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? `❌ خلصت المحاولات! الرقم كان ${secretNumber}.`
+            : `❌ No attempts left! The number was ${secretNumber}.`;
+
+        return;
+    }
+
+    if(guess < secretNumber){
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? `⬆️ الرقم أكبر! باقي ${attempts} محاولات.`
+            : `⬆️ Higher! ${attempts} attempts left.`;
+
+    }else{
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? `⬇️ الرقم أصغر! باقي ${attempts} محاولات.`
+            : `⬇️ Lower! ${attempts} attempts left.`;
+
+    }
+}
+
+
+/* ================= MEMORY GAME ================= */
+
+let memorySequence = "";
+
+function startMemory(){
+
+    memorySequence = "";
+
+    for(let i=0;i<5;i++){
+
+        memorySequence +=
+            Math.floor(
+                Math.random() * 10
+            );
+
+    }
+
+    const display =
+        document.getElementById("memoryDisplay");
+
+    const result =
+        document.getElementById("memoryResult");
+
+    document.getElementById("memoryInput")
+        .value = "";
+
+    display.textContent =
+        memorySequence;
+
+    result.textContent =
+        currentLanguage === "ar"
+        ? "احفظ الرقم..."
+        : "Memorize it...";
+
+    setTimeout(() => {
+
+        display.textContent = "???";
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? "اكتب التسلسل اللي حفظته."
+            : "Enter the sequence you remember.";
+
+    },2500);
+}
+
+function checkMemory(){
+
+    const input =
+        document.getElementById("memoryInput")
+        .value
+        .trim();
+
+    const result =
+        document.getElementById("memoryResult");
+
+    if(input === memorySequence){
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? "🎉 ممتاز! إجابة صحيحة."
+            : "🎉 Excellent! Correct.";
+
+    }else{
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? `❌ غلط. التسلسل كان ${memorySequence}`
+            : `❌ Wrong. The sequence was ${memorySequence}`;
+
+    }
+}
+
+
+/* ================= CLICK GAME ================= */
+
+let clickCount = 0;
+let clickRunning = false;
+let clickTimer;
+
+function startClickGame(){
+
+    clearInterval(clickTimer);
+
+    clickCount = 0;
+    clickRunning = true;
+
+    document.getElementById("clickArea")
+        .textContent = "0";
+
+    document.getElementById("clickResult")
+        .textContent =
+        currentLanguage === "ar"
+        ? "عندك 10 ثواني!"
+        : "You have 10 seconds!";
+
+    let seconds = 10;
+
+    clickTimer =
+        setInterval(() => {
+
+            seconds--;
+
+            document.getElementById("clickResult")
+                .textContent =
+                currentLanguage === "ar"
+                ? `باقي ${seconds} ثواني`
+                : `${seconds} seconds left`;
+
+            if(seconds <= 0){
+
+                clearInterval(clickTimer);
+
+                clickRunning = false;
+
+                document.getElementById("clickResult")
+                    .textContent =
+                    currentLanguage === "ar"
+                    ? `🏆 النتيجة: ${clickCount} ضغطة`
+                    : `🏆 Score: ${clickCount} clicks`;
+
+            }
+
+        },1000);
+}
+
+function clickCounter(){
+
+    if(!clickRunning) return;
+
+    clickCount++;
+
+    document.getElementById("clickArea")
+        .textContent = clickCount;
+}
+
+
+/* ================= SPEED NUMBERS ================= */
+
+let speedTarget = "";
+let speedStart = 0;
+
+function startSpeedGame(){
+
+    speedTarget =
+        Math.floor(
+            Math.random() * 900000
+        ) + 100000;
+
+    document.getElementById("speedNumber")
+        .textContent = speedTarget;
+
+    document.getElementById("speedInput")
+        .value = "";
+
+    document.getElementById("speedResult")
+        .textContent =
+        currentLanguage === "ar"
+        ? "اكتب الرقم بسرعة!"
+        : "Type it quickly!";
+
+    speedStart =
+        performance.now();
+}
+
+function checkSpeedGame(){
+
+    const input =
+        document.getElementById("speedInput")
+        .value
+        .trim();
+
+    const result =
+        document.getElementById("speedResult");
+
+    if(input !== speedTarget.toString()){
+
+        result.textContent =
+            currentLanguage === "ar"
+            ? "❌ الرقم غلط."
+            : "❌ Wrong number.";
+
+        return;
+    }
+
+    const time =
+        Math.round(
+            performance.now() -
+            speedStart
+        );
+
+    result.textContent =
+        currentLanguage === "ar"
+        ? `⚡ صح! وقتك ${time} ms`
+        : `⚡ Correct! Your time: ${time} ms`;
+}
+
+
+/* ================= SECURITY ================= */
+/*
+   Client-side hardening is enabled through the CSP and Permissions Policy above.
+   Real HTTP security headers (HSTS, X-Content-Type-Options, frame-ancestors)
+   must also be configured on the hosting server/CDN.
+*/
+
+/* ================= START ================= */
+
+
+/* ================= INTERNAL PAGE ROUTER ================= */
+
+const nexusPages = ["home","tools","games","discord"];
+
+function openNexusPage(page, updateHash = true){
+    page = typeof page === "string" ? page.toLowerCase().trim() : "home";
+    if(!nexusPages.includes(page)) page = "home";
+
+    document.body.dataset.page = page;
+
+    document.querySelectorAll("[data-page-link]").forEach(link=>{
+        link.classList.toggle("active", link.dataset.pageLink === page);
+    });
+
+    if(updateHash && location.hash !== "#" + page){
+        history.pushState({page}, "", "#" + page);
+    }
+
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
+document.addEventListener("click", (event)=>{
+    const actionElement = event.target.closest("[data-action]");
+    if(actionElement){
+        const action = actionElement.dataset.action;
+        const actions = {
+            toggleLanguage, randomIdea, randomNumber, rollDice, randomColor,
+            generateCode, startTimer, startReaction, startTarget, guessNumber,
+            newGuessGame, startMemory, checkMemory, startClickGame, clickCounter,
+            startSpeedGame, checkSpeedGame
+        };
+        if(typeof actions[action] === "function") actions[action]();
+        return;
+    }
+    const link = event.target.closest("[data-page-link]");
+    if(!link) return;
+
+    event.preventDefault();
+    openNexusPage(link.dataset.pageLink);
+});
+
+window.addEventListener("hashchange", ()=>{
+    openNexusPage(location.hash.slice(1) || "home", false);
+});
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    openNexusPage(location.hash.slice(1) || "home", false);
+});
+
+newGuessGame();
+
+</script>
+
+</body>
+</html>

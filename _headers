@@ -1,0 +1,9 @@
+/*
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; connect-src https://api.counterapi.dev; font-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'none'; img-src 'self' data: https://cdn.prod.website-files.com; style-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo' 'sha256-f/6VlXnx88FXCQsQOibgkcQnFznoKNZ9CfWFt33pe3A='; script-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo' 'sha256-Zp1eValOlj1BcSRe/du15vsOHf8OPlbCcOUEYJV92D8=' 'sha256-NwtASzfasrF4yBa31egpKo3XLPcomzCaKjrEKvcpbv8='; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin

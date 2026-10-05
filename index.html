@@ -1,2840 +1,350 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta name="google-site-verification" content="VHPFb3jaweltpS6yi9G3o0lbvmi6iZTB--vZrWK0Bmg..." />
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXUS | Future Gaming</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXUS | Mini Games & Tools</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; connect-src https://api.counterapi.dev; font-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'none'; img-src 'self' data: https://cdn.prod.website-files.com; style-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo' 'sha256-f/6VlXnx88FXCQsQOibgkcQnFznoKNZ9CfWFt33pe3A='; script-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo' 'sha256-Zp1eValOlj1BcSRe/du15vsOHf8OPlbCcOUEYJV92D8=' 'sha256-NwtASzfasrF4yBa31egpKo3XLPcomzCaKjrEKvcpbv8='; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; img-src 'self' data: https://cdn.prod.website-files.com; style-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo'; script-src 'nonce-P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo'; upgrade-insecure-requests">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
-
-
+<meta name="visits-ns" content="nexus-gaming-x7k2m9qa">
+<meta name="visits-name" content="visits">
+<meta name="description" content="NEXUS: mini games and quick tools that run in your browser.">
+<script nonce="P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo">addEventListener("error",function(e){var n=document.getElementById("nojs");if(n)n.textContent="JS error: "+e.message});try{var s=localStorage.getItem('nx-theme');document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark')}catch(e){document.documentElement.dataset.theme='dark'}</script>
 <style nonce="P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo">
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#04040d;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-/* ================= BACKGROUND ================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-        linear-gradient(rgba(120,0,255,.07) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(0,220,255,.07) 1px,transparent 1px);
-    background-size:55px 55px;
-    animation:gridMove 12s linear infinite;
-    pointer-events:none;
-    z-index:-10;
-}
-
-@keyframes gridMove{
-    from{transform:translateY(0)}
-    to{transform:translateY(55px)}
-}
-
-.glow{
-    position:fixed;
-    width:420px;
-    height:420px;
-    border-radius:50%;
-    filter:blur(110px);
-    opacity:.22;
-    pointer-events:none;
-    z-index:-8;
-}
-
-.glow1{
-    background:#8b00ff;
-    top:-130px;
-    right:-100px;
-    animation:glowOne 9s ease-in-out infinite alternate;
-}
-
-.glow2{
-    background:#00d9ff;
-    bottom:-160px;
-    left:-100px;
-    animation:glowTwo 11s ease-in-out infinite alternate;
-}
-
-@keyframes glowOne{
-    from{transform:translate(0,0)}
-    to{transform:translate(-120px,170px)}
-}
-
-@keyframes glowTwo{
-    from{transform:translate(0,0)}
-    to{transform:translate(150px,-120px)}
-}
-
-/* ================= FLOATING PARTICLES ================= */
-
-.particles{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:-7;
-    overflow:hidden;
-}
-
-.particle{
-    position:absolute;
-    width:3px;
-    height:3px;
-    background:#b95cff;
-    border-radius:50%;
-    box-shadow:0 0 12px #a000ff;
-    animation:floatParticle linear infinite;
-}
-
-@keyframes floatParticle{
-    from{
-        transform:translateY(110vh);
-        opacity:0;
-    }
-    15%{
-        opacity:1;
-    }
-    85%{
-        opacity:1;
-    }
-    to{
-        transform:translateY(-10vh);
-        opacity:0;
-    }
-}
-
-/* ================= NAV ================= */
-
-nav{
-    position:fixed;
-    top:15px;
-    left:50%;
-    transform:translateX(-50%);
-    width:92%;
-    max-width:1150px;
-    padding:14px 20px;
-    background:rgba(8,8,22,.7);
-    border:1px solid rgba(150,60,255,.35);
-    border-radius:20px;
-    backdrop-filter:blur(20px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:1000;
-    box-shadow:0 0 30px rgba(130,0,255,.15);
-}
-
-.logo{
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:3px;
-    text-shadow:0 0 15px #9d00ff;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#fff;
-    text-shadow:0 0 12px #00eaff;
-}
-
-.lang-btn{
-    border:1px solid #8b00ff;
-    background:rgba(120,0,255,.12);
-    color:#fff;
-    padding:8px 13px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.lang-btn:hover{
-    box-shadow:0 0 18px rgba(140,0,255,.5);
-    transform:translateY(-2px);
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:120px 20px 60px;
-}
-
-.badge{
-    padding:9px 18px;
-    border:1px solid #8b00ff;
-    border-radius:30px;
-    color:#dca8ff;
-    background:rgba(130,0,255,.08);
-    box-shadow:0 0 20px rgba(130,0,255,.25);
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(55px,10vw,110px);
-    line-height:1;
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #bb54ff,
-        #00eaff,
-        #fff
-    );
-    background-size:300%;
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:gradientMove 5s linear infinite;
-}
-
-@keyframes gradientMove{
-    to{
-        background-position:300%;
-    }
-}
-
-.hero p{
-    width:100%;
-    max-width:680px;
-    align-self:center;
-    color:#999;
-    font-size:18px;
-    margin:25px auto;
-    line-height:1.8;
-    text-align:center;
-}
-
-.main-btn{
-    display:inline-block;
-    padding:15px 30px;
-    border-radius:14px;
-    color:white;
-    text-decoration:none;
-    background:linear-gradient(90deg,#7900ff,#00cfff);
-    box-shadow:0 0 30px rgba(110,0,255,.35);
-    transition:.3s;
-    border:0;
-    cursor:pointer;
-    font-size:16px;
-}
-
-.main-btn:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 0 45px rgba(0,220,255,.5);
-}
-
-/* ================= AI CORE ================= */
-
-.ai-section{
-    min-height:560px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-}
-
-.ai-core{
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    border:2px solid #a000ff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    box-shadow:
-        0 0 30px #8000ff,
-        0 0 80px rgba(130,0,255,.5),
-        inset 0 0 40px rgba(0,220,255,.2);
-    animation:corePulse 3s ease-in-out infinite;
-}
-
-/* moving rings */
-
-.ai-core::before{
-    content:"";
-    position:absolute;
-    width:290px;
-    height:290px;
-    border-radius:50%;
-    border:1px solid #00eaff;
-    border-left-color:transparent;
-    border-right-color:transparent;
-    animation:spin 7s linear infinite;
-}
-
-.ai-core::after{
-    content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    border:1px solid #9d00ff;
-    border-top-color:transparent;
-    border-bottom-color:transparent;
-    animation:spinReverse 11s linear infinite;
-}
-
-.ai-ring{
-    position:absolute;
-    width:410px;
-    height:410px;
-    border-radius:50%;
-    border:1px dashed rgba(0,234,255,.35);
-    animation:spin 18s linear infinite;
-}
-
-.ai-ring::before,
-.ai-ring::after{
-    content:"";
-    position:absolute;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#00eaff;
-    box-shadow:0 0 18px #00eaff;
-}
-
-.ai-ring::before{
-    top:20px;
-    left:50%;
-}
-
-.ai-ring::after{
-    bottom:30px;
-    right:15%;
-    background:#b000ff;
-    box-shadow:0 0 18px #b000ff;
-}
-
-.core-text{
-    font-size:38px;
-    font-weight:900;
-    letter-spacing:4px;
-    color:white;
-    text-shadow:
-        0 0 10px #fff,
-        0 0 25px #00eaff,
-        0 0 45px #8b00ff;
-    animation:textPulse 2s ease-in-out infinite;
-}
-
-@keyframes corePulse{
-    50%{
-        transform:scale(1.06);
-        box-shadow:
-            0 0 60px #8000ff,
-            0 0 120px rgba(130,0,255,.6);
-    }
-}
-
-@keyframes textPulse{
-    50%{
-        text-shadow:
-            0 0 15px #fff,
-            0 0 35px #00eaff,
-            0 0 65px #8b00ff;
-    }
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes spinReverse{
-    to{
-        transform:rotate(-360deg);
-    }
-}
-
-/* ================= SECTION ================= */
-
-.section{
-    width:92%;
-    max-width:1150px;
-    margin:auto;
-    padding:80px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.section-title h2{
-    font-size:42px;
-    margin-bottom:12px;
-    text-shadow:0 0 20px #8b00ff;
-}
-
-.section-title p{
-    color:#888;
-}
-
-/* ================= CARDS ================= */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
-    background:rgba(15,15,30,.65);
-    border:1px solid rgba(160,70,255,.25);
-    border-radius:22px;
-    padding:28px;
-    min-height:190px;
-    backdrop-filter:blur(15px);
-    transition:.35s;
-    position:relative;
-    overflow:hidden;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#a900ff;
-    box-shadow:0 15px 45px rgba(120,0,255,.2);
-}
-
-.card .icon{
-    font-size:38px;
-    margin-bottom:18px;
-}
-
-.card h3{
-    margin-bottom:12px;
-}
-
-.card p{
-    color:#999;
-    line-height:1.7;
-}
-
-/* ================= TOOLS ================= */
-
-.tools-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.tool{
-    background:rgba(12,12,28,.8);
-    border:1px solid rgba(0,220,255,.2);
-    border-radius:22px;
-    padding:25px;
-    min-height:300px;
-    display:flex;
-    flex-direction:column;
-}
-
-.tool h3{
-    font-size:23px;
-    margin-bottom:10px;
-}
-
-.tool-desc{
-    color:#888;
-    font-size:14px;
-    line-height:1.6;
-    min-height:45px;
-}
-
-.tool input{
-    width:100%;
-    padding:13px;
-    margin-top:12px;
-    background:#080812;
-    color:white;
-    border:1px solid #333;
-    border-radius:10px;
-    outline:none;
-}
-
-.tool input:focus{
-    border-color:#00d9ff;
-    box-shadow:0 0 12px rgba(0,220,255,.2);
-}
-
-.tool button,
-.game button{
-    width:100%;
-    padding:13px;
-    margin-top:12px;
-    background:linear-gradient(90deg,#6200ff,#009dff);
-    border:0;
-    border-radius:10px;
-    color:white;
-    cursor:pointer;
-    font-size:15px;
-    transition:.25s;
-}
-
-.tool button:hover,
-.game button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 20px rgba(0,200,255,.3);
-}
-
-.result{
-    margin-top:15px;
-    min-height:65px;
-    padding:14px;
-    border-radius:12px;
-    background:rgba(0,0,0,.3);
-    border:1px solid rgba(255,255,255,.08);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    line-height:1.6;
-    color:#d9d9ff;
-    overflow-wrap:anywhere;
-}
-
-.big-number{
-    font-size:45px;
-    font-weight:bold;
-    color:#00eaff;
-    text-shadow:0 0 20px #00eaff;
-}
-
-/* ================= GAMES ================= */
-
-.games-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.game{
-    background:rgba(10,10,25,.85);
-    border:1px solid rgba(140,0,255,.3);
-    border-radius:22px;
-    padding:25px;
-    min-height:390px;
-    text-align:center;
-    transition:.3s;
-}
-
-.game:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 40px rgba(120,0,255,.15);
-}
-
-.game h3{
-    font-size:23px;
-    margin-bottom:8px;
-}
-
-.game p{
-    color:#888;
-    line-height:1.6;
-    font-size:14px;
-}
-
-.game-result{
-    margin-top:18px;
-    min-height:90px;
-    padding:15px;
-    border-radius:14px;
-    background:rgba(0,0,0,.35);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    line-height:1.7;
-}
-
-/* ================= REACTION ================= */
-
-#reactionArea{
-    margin-top:15px;
-    height:150px;
-    border-radius:15px;
-    background:#151525;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    color:#aaa;
-    transition:.2s;
-    user-select:none;
-    border:1px solid #28283c;
-}
-
-#reactionArea.ready{
-    background:#00a83b;
-    color:white;
-    box-shadow:
-        0 0 25px #00ff66,
-        inset 0 0 25px rgba(255,255,255,.2);
-    animation:readyPulse .7s infinite alternate;
-}
-
-@keyframes readyPulse{
-    from{transform:scale(1)}
-    to{transform:scale(1.02)}
-}
-
-/* ================= TARGET ================= */
-
-.target-area{
-    margin-top:15px;
-    height:150px;
-    position:relative;
-    border-radius:15px;
-    background:#090914;
-    border:1px solid #222;
-    overflow:hidden;
-}
-
-.target{
-    width:38px;
-    height:38px;
-    background:#ff00dd;
-    border-radius:50%;
-    position:absolute;
-    cursor:pointer;
-    box-shadow:0 0 25px #ff00dd;
-    display:none;
-    animation:targetPop .2s ease-out;
-}
-
-@keyframes targetPop{
-    from{
-        transform:scale(0);
-    }
-    to{
-        transform:scale(1);
-    }
-}
-
-/* ================= GUESS ================= */
-
-.guess-input{
-    width:100%;
-    padding:13px;
-    margin-top:15px;
-    background:#07070f;
-    color:white;
-    border:1px solid #333;
-    border-radius:10px;
-    text-align:center;
-    font-size:18px;
-}
-
-/* ================= MEMORY ================= */
-
-.memory-display{
-    margin-top:15px;
-    min-height:90px;
-    border-radius:14px;
-    background:#07070f;
-    border:1px solid #25253a;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:35px;
-    letter-spacing:8px;
-    color:#00eaff;
-    text-shadow:0 0 15px #00eaff;
-}
-
-/* ================= DISCORD ================= */
-
-.discord{
-    text-align:center;
-    padding:80px 20px;
-    margin-top:30px;
-    border-top:1px solid rgba(150,0,255,.15);
-    border-bottom:1px solid rgba(150,0,255,.15);
-    background:rgba(80,0,140,.05);
-}
-
-.discord h2{
-    font-size:38px;
-    margin-bottom:12px;
-    text-shadow:0 0 20px #8b00ff;
-}
-
-.discord p{
-    color:#999;
-    margin-bottom:25px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    text-align:center;
-    padding:50px 20px;
-    color:#666;
-    margin-top:50px;
-}
-
-footer span{
-    color:#9c4dff;
-}
-
-
-/* ================= NEXUS CORE / COMMUNITY ================= */
-.core-text{
-    position:relative;
-    z-index:3;
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    letter-spacing:3px;
-    font-weight:900;
-    color:#fff;
-    text-align:center;
-    background:radial-gradient(circle,rgba(105,0,255,.25),rgba(5,5,18,.2) 65%,transparent 70%);
-    text-shadow:0 0 12px #fff,0 0 28px #00eaff,0 0 45px #8b00ff;
-    transition:transform .35s ease,letter-spacing .35s ease;
-    cursor:pointer;
-}
-.core-text:hover,.core-text:focus-visible{
-    transform:scale(1.08);
-    letter-spacing:5px;
-    outline:none;
-}
-.core-community-panel{
-    position:absolute;
-    left:calc(100% + 38px);
-    top:50%;
-    width:290px;
-    padding:20px 22px;
-    border:1px solid rgba(0,234,255,.28);
-    border-radius:18px;
-    background:rgba(8,8,24,.9);
-    box-shadow:0 0 35px rgba(80,0,255,.18);
-    opacity:0;
-    transform:translateX(-15px) translateY(-50%);
-    pointer-events:none;
-    transition:.35s ease;
-    text-align:left;
-    z-index:10;
-}
-.ai-core:hover .core-community-panel,.ai-core:focus-within .core-community-panel{
-    opacity:1;
-    transform:translateX(0) translateY(-50%);
-}
-.core-panel-kicker{
-    display:block;
-    font-size:10px;
-    letter-spacing:2px;
-    color:#00eaff;
-    margin-bottom:7px;
-}
-.core-community-panel strong{display:block;font-size:20px;margin-bottom:7px}
-.core-community-panel p{color:#a9a9c5;line-height:1.65;font-size:13px}
-
-/* ================= DISCORD REFINEMENT ================= */
-.discord-copy .badge{margin-bottom:10px}
-.discord-quote{
-    margin-top:20px;
-    padding:15px 18px;
-    border-left:2px solid #a000ff;
-    color:#ddd;
-    background:rgba(130,0,255,.06);
-    border-radius:0 12px 12px 0;
-    line-height:1.65;
-    font-style:italic;
-}
-.discord-info{
-    position:relative;
-    overflow:hidden;
-    min-height:170px;
-    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
-    animation:communityFloat 4.5s ease-in-out infinite;
-}
-.discord-info:nth-child(2){animation-delay:.35s}
-.discord-info:nth-child(3){animation-delay:.7s}
-.discord-info:hover{
-    transform:translateY(-9px) scale(1.015);
-    box-shadow:0 18px 45px rgba(120,0,255,.18);
-    border-color:rgba(0,234,255,.42);
-}
-.discord-info::after{
-    content:"";
-    position:absolute;
-    width:130px;height:130px;
-    right:-60px;bottom:-70px;
-    border-radius:50%;
-    background:rgba(0,234,255,.07);
-    filter:blur(5px);
-}
-@keyframes communityFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-5px)}
-}
-.discord-bottom-note{
-    max-width:850px;
-    margin:5px auto 28px;
-    padding:20px 24px;
-    text-align:center;
-    border:1px solid rgba(160,0,255,.2);
-    border-radius:18px;
-    background:rgba(12,8,28,.58);
-}
-.discord-bottom-note span{display:block;font-size:20px;font-weight:800;margin-bottom:7px}
-.discord-bottom-note p{color:#9999b7;line-height:1.7;margin:0}
-
-@media(max-width:850px){
-    .core-community-panel{
-        left:50%;top:calc(100% + 35px);
-        transform:translateX(-50%) translateY(-5px);
-        width:min(290px,80vw);
-        text-align:center;
-    }
-    .ai-core:hover .core-community-panel,.ai-core:focus-within .core-community-panel{
-        transform:translateX(-50%) translateY(0);
-    }
-    .ai-section{min-height:650px}
-    .discord{width:94%;margin-top:95px}
-    .discord-hero{grid-template-columns:1fr;gap:20px}
-    .discord-gallery,.discord-info-grid{grid-template-columns:1fr}
-    .discord-copy{padding:24px}
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:850px){
-
-    nav{
-        padding:12px 15px;
-    }
-
-    .nav-links a{
-        display:none;
-    }
-
-    .cards,
-    .tools-grid,
-    .games-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero h1{
-        font-size:65px;
-    }
-
-    .section-title h2{
-        font-size:34px;
-    }
-
-    .ai-core{
-        width:170px;
-        height:170px;
-    }
-
-    .ai-core::before{
-        width:220px;
-        height:220px;
-    }
-
-    .ai-core::after{
-        width:260px;
-        height:260px;
-    }
-
-    .ai-ring{
-        width:310px;
-        height:310px;
-    }
-}
-
-/* ================= INTERNAL PAGES / SPA ================= */
-
-[data-page-section]{
-    display:none;
-}
-
-body[data-page="home"] [data-page-section="home"],
-body[data-page="tools"] [data-page-section="tools"],
-body[data-page="games"] [data-page-section="games"],
-body[data-page="discord"] [data-page-section="discord"]{
-    display:block;
-    animation:pageIn .45s ease both;
-}
-
-@keyframes pageIn{
-    from{opacity:0; transform:translateY(18px)}
-    to{opacity:1; transform:translateY(0)}
-}
-
-.page-back{
-    appearance:none;
-    border:1px solid rgba(160,80,255,.4);
-    background:rgba(10,8,28,.75);
-    color:#eee;
-    padding:10px 16px;
-    border-radius:12px;
-    cursor:pointer;
-    font:inherit;
-    transition:.25s;
-}
-
-.page-back:hover{
-    transform:translateX(-3px);
-    box-shadow:0 0 22px rgba(140,0,255,.25);
-}
-
-.internal-page-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    margin-bottom:30px;
-}
-
-.page-tag{
-    color:#8be9ff;
-    font-size:12px;
-    letter-spacing:3px;
-    opacity:.8;
-}
-
-.discord{
-    width:92%;
-    max-width:1150px;
-    margin:120px auto 70px;
-    padding:35px 0;
-    text-align:left;
-}
-
-.discord-hero{
-    display:grid;
-    grid-template-columns:1fr 300px;
-    gap:30px;
-    align-items:center;
-    margin-bottom:35px;
-}
-
-.discord-copy{
-    padding:30px;
-    border:1px solid rgba(140,0,255,.3);
-    border-radius:25px;
-    background:rgba(10,10,25,.72);
-    box-shadow:0 20px 60px rgba(60,0,120,.12);
-}
-
-.discord-copy h2{
-    font-size:clamp(32px,5vw,58px);
-    margin:15px 0 10px;
-    text-shadow:0 0 25px rgba(140,0,255,.4);
-}
-
-.discord-copy p{
-    color:#b9b9d4;
-    line-height:1.8;
-    max-width:700px;
-}
-
-.discord-extra{
-    margin-top:8px;
-}
-
-.discord-logo-card{
-    min-height:260px;
-    border-radius:25px;
-    border:1px solid rgba(88,101,242,.5);
-    background:
-        radial-gradient(circle at 50% 35%,rgba(88,101,242,.35),transparent 45%),
-        rgba(8,8,22,.9);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    box-shadow:0 0 50px rgba(88,101,242,.12);
-}
-
-.discord-mark{
-    width:105px;
-    height:80px;
-    border-radius:38% 38% 45% 45%;
-    background:#5865F2;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:55px;
-    box-shadow:0 0 35px rgba(88,101,242,.55);
-}
-
-.discord-logo-card span{
-    letter-spacing:5px;
-    font-weight:800;
-    color:#dfe2ff;
-}
-
-.discord-gallery{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin:25px 0;
-}
-
-.discord-image-card{
-    overflow:hidden;
-    border-radius:20px;
-    border:1px solid rgba(88,101,242,.35);
-    background:rgba(8,8,20,.85);
-    transition:.3s;
-}
-
-.discord-image-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 45px rgba(88,101,242,.18);
-}
-
-.discord-image-card img{
-    width:100%;
-    aspect-ratio:16/10;
-    display:block;
-    object-fit:cover;
-    background:#0b0b18;
-}
-
-.image-caption{
-    padding:13px 15px;
-    color:#d8d8f3;
-    font-weight:600;
-}
-
-.discord-info-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin:25px 0 35px;
-}
-
-.discord-info{
-    padding:22px;
-    border-radius:18px;
-    background:rgba(10,10,25,.75);
-    border:1px solid rgba(140,0,255,.25);
-}
-
-.discord-info > span{
-    font-size:28px;
-}
-
-.discord-info h3{
-    margin:10px 0 5px;
-}
-
-.discord-info p{
-    color:#8888a8;
-    line-height:1.6;
-    margin:0;
-}
-
-.discord .main-btn{
-    display:inline-flex;
-    margin-top:8px;
-}
-
-.nav-links a.active{
-    color:#fff;
-    text-shadow:0 0 14px #9d5cff;
-}
-
-@media(max-width:800px){
-    .discord-hero{
-        grid-template-columns:1fr;
-    }
-
-    .discord-gallery,
-    .discord-info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .internal-page-head{
-        margin-top:10px;
-    }
-
-    .discord{
-        margin-top:105px;
-    }
-}
-
-
-/* ================= NEXUS CORE CENTER FIX ================= */
-.ai-section[data-page-section="home"]{
-    width:100%;
-    min-height:560px;
-    margin:0;
-    padding:40px 20px;
-    box-sizing:border-box;
-    display:flex !important;
-    flex-direction:row;
-    justify-content:center !important;
-    align-items:center !important;
-    text-align:center;
-    position:relative;
-}
-.ai-section[data-page-section="home"] .ai-core{
-    position:relative;
-    left:auto;
-    right:auto;
-    top:auto;
-    bottom:auto;
-    margin:0 auto;
-    flex:0 0 220px;
-}
-@media(max-width:850px){
-    .ai-section[data-page-section="home"]{
-        min-height:560px;
-        padding:40px 15px;
-    }
-    .ai-section[data-page-section="home"] .ai-core{
-        flex-basis:170px;
-        margin:0 auto;
-    }
-}
+:root{--bg:#120a24;--card:#1d1238;--ink:#f5efff;--mute:#b9a8dc;--a:#d946ef;--b:#9333ea;--c:#c4b5fd;--g:#34d399;--sh:#a855f7;--dot:rgba(196,181,253,.12);color-scheme:dark}
+:root[data-theme=light]{--bg:#f6f1ff;--card:#fff;--ink:#1e1236;--mute:#5f4b8b;--a:#a21caf;--b:#7c3aed;--c:#ddd0ff;--g:#34d399;--sh:#4c1d95;--dot:rgba(76,29,149,.12);color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",Cairo,Tahoma,system-ui,sans-serif;background:var(--bg) radial-gradient(var(--dot) 1.5px,transparent 1.5px) 0 0/22px 22px;color:var(--ink);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;transition:background-color .25s,color .25s}
+:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:2.5px solid var(--ink);padding:10px 4%;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.brand{font-weight:900;font-size:26px;letter-spacing:-.02em;text-shadow:2px 2px 0 var(--a)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;padding:6px 14px;border-radius:99px;font-weight:700;border:2.5px solid transparent}
+nav a:hover{border-color:var(--ink)}
+nav a[aria-current=page]{background:var(--ink);color:var(--bg)}
+.acts{display:flex;gap:8px}
+button,.cta{font:inherit;font-weight:800;cursor:pointer;color:#fff;background:var(--b);border:2.5px solid var(--ink);border-radius:12px;padding:8px 16px;box-shadow:3px 3px 0 var(--sh);transition:transform .12s,box-shadow .12s;text-decoration:none;display:inline-block}
+button{position:relative;overflow:hidden}
+button:hover,.cta:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--sh)}
+button:active,.cta:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--sh)}
+button:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 var(--sh)}
+.ghost{background:var(--card);color:var(--ink)}
+.ccol{color:#1e1236}.flush{margin:0}
+.split{display:flex;flex-wrap:wrap;gap:30px;align-items:center;justify-content:space-between}.split>div{flex:1 1 380px}
+figure{margin:0}.pic{position:relative;aspect-ratio:4/3;overflow:hidden;border:2.5px solid var(--ink);border-radius:18px;box-shadow:6px 6px 0 var(--sh);background:var(--card)}
+.pic svg,.pic img{position:absolute;inset:0;width:100%;height:100%}.pic img{object-fit:cover}
+.a1{fill:var(--b)}.a2{fill:var(--a)}.a3{fill:var(--c)}.w{fill:#fff}
+figcaption{margin-top:10px;font-weight:700;font-size:14px;color:var(--mute)}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-bottom:26px}
+.heroimg{flex:0 1 340px!important}
+main{flex:1;width:92%;max-width:1100px;margin:0 auto;padding:48px 0 70px}
+[hidden]{display:none!important}
+main>section{display:none;scroll-margin-top:90px}
+main>section.on{display:block}
+html:not(.js) main>section:target{display:block}
+html:not(.js) main:not(:has(section:target)) #home{display:block}
+.warn{background:#fde68a;color:#1e1236;padding:10px 4%;font-weight:700;text-align:center}
+.hero{padding:40px 0 56px}
+.tag{display:inline-block;background:var(--c);color:#1e1236;font-weight:800;border:2.5px solid var(--ink);border-radius:99px;padding:3px 14px;margin-bottom:18px}
+h1{font-size:clamp(70px,17vw,180px);line-height:.95;font-weight:900;letter-spacing:-.04em;text-shadow:5px 5px 0 var(--a)}
+.lead{max-width:36em;font-size:19px;color:var(--mute);margin:22px 0 28px}
+h2{font-size:clamp(30px,5vw,46px);font-weight:900;letter-spacing:-.02em;line-height:1.15}
+.sub{color:var(--mute);margin:6px 0 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.card{background:var(--card);border:2.5px solid var(--ink);border-radius:18px;padding:20px;box-shadow:5px 5px 0 var(--sh);display:flex;flex-direction:column;gap:12px}
+.card h3{font-size:20px;line-height:1.3}
+.card p{color:var(--mute);font-size:15px}
+.feat{text-decoration:none;color:inherit}
+.feat:hover{box-shadow:9px 9px 0 var(--sh)}
+.feat{transition:transform .12s,box-shadow .12s}
+.ico{font-size:34px}
+input,select{font:inherit;width:100%;padding:9px 12px;border-radius:10px;border:2.5px solid var(--ink);background:var(--bg);color:var(--ink)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.out{min-height:56px;display:grid;place-items:center;text-align:center;font-weight:800;font-size:17px;border:2.5px dashed var(--ink);border-radius:12px;padding:8px;background:var(--bg);word-break:break-word}
+.big{font-size:44px;line-height:1}
+.pad{min-height:96px;width:100%;font-size:20px;border-radius:14px;background:var(--a);color:#fff}
+.pad.go{background:var(--g);color:#0b1020}
+.field{position:relative;height:170px;border:2.5px dashed var(--ink);border-radius:12px;overflow:hidden;background:var(--bg)}
+#tg{position:absolute;width:38px;height:38px;padding:0;border-radius:50%;background:var(--a);display:none}
+.disc{display:flex;flex-direction:column;align-items:flex-start;gap:16px;background:var(--card);border:2.5px solid var(--ink);border-radius:22px;box-shadow:7px 7px 0 var(--sh);padding:clamp(22px,5vw,44px);margin-bottom:26px}
+footer{border-top:2.5px solid var(--ink);padding:18px 4%;text-align:center;color:var(--mute);font-size:14px}
+@media(max-width:560px){.brand{font-size:22px}.hero{padding-top:10px}}
+
+.blob{position:fixed;z-index:-1;width:46vmax;height:46vmax;border-radius:50%;filter:blur(90px);opacity:.33;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.b1{background:var(--b);top:-18vmax;inset-inline-end:-12vmax}.b2{background:var(--a);bottom:-20vmax;inset-inline-start:-14vmax;animation-duration:19s;animation-direction:alternate-reverse}
+@keyframes drift{to{transform:translate(-9vmax,12vmax) scale(1.2)}}
+@keyframes pageIn{from{opacity:0;transform:translateY(26px) scale(.98)}to{opacity:1;transform:none}}
+main>section.on{animation:pageIn .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes drop{0%{opacity:0;transform:translateY(-70px) rotate(-8deg)}60%{opacity:1;transform:translateY(8px) rotate(2deg)}100%{opacity:1;transform:none}}
+@keyframes wave{50%{transform:translateY(-9px)}}
+h1 .l{display:inline-block;animation:drop .8s cubic-bezier(.2,.9,.3,1.2) both,wave 3.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px) rotate(1.5deg)}}
+.heroimg{animation:bob 5s ease-in-out infinite}
+@keyframes ring{0%{box-shadow:3px 3px 0 var(--sh),0 0 0 0 rgba(168,85,247,.7)}100%{box-shadow:3px 3px 0 var(--sh),0 0 0 18px rgba(168,85,247,0)}}
+.cta{animation:ring 2s infinite}
+@keyframes pop{0%{transform:scale(.2) rotate(-25deg);opacity:0}70%{transform:scale(1.25) rotate(4deg)}100%{transform:none;opacity:1}}
+.big{display:inline-block;animation:pop .45s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes flash{to{filter:brightness(1.25);transform:scale(1.02)}}
+.pad.go{animation:flash .35s infinite alternate}
+.js .card,.js .pic{opacity:0;transform:translateY(34px)}
+.js .card.in,.js .pic.in{opacity:1;transition:opacity .6s,transform .6s,box-shadow .12s}
+.js .card.in{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.js .pic.in{transform:none}
+#tg{transition:left .2s,top .2s,transform .12s,box-shadow .12s}
+.row.col{flex-wrap:wrap}.row select{flex:0 0 38%}
+
+.rip{position:absolute;width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.55);transform:translate(-50%,-50%) scale(0);animation:rip .6s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:translate(-50%,-50%) scale(16);opacity:0}}
+.conf{position:fixed;width:9px;height:9px;border-radius:2px;pointer-events:none;z-index:50;animation:conf .9s ease-out forwards}
+@keyframes conf{to{transform:translate(var(--dx),var(--dy)) rotate(540deg);opacity:0}}
+.pts{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.pt{position:absolute;bottom:-12px;width:6px;height:6px;border-radius:50%;background:var(--c);opacity:0;animation:rise linear infinite}
+@keyframes rise{10%{opacity:.85}to{transform:translateY(-110vh);opacity:0}}
+.spot{position:fixed;left:0;top:0;width:360px;height:360px;margin:-180px 0 0 -180px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.3),transparent 65%);pointer-events:none;z-index:-1;transform:translate(var(--mx,50vw),var(--my,30vh));transition:transform .15s ease-out}
+.tick{direction:ltr;display:flex;position:relative;overflow:hidden;background:var(--b);color:#fff;border:2.5px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--sh);font-size:26px;letter-spacing:.5em;white-space:nowrap;padding:8px 0;margin:0 5px 44px 0;user-select:none;-webkit-user-select:none;pointer-events:none}
+.tick::before,.tick::after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:1}
+.tick::before{left:0;background:linear-gradient(90deg,var(--b),transparent)}
+.tick::after{right:0;background:linear-gradient(270deg,var(--b),transparent)}
+.tick div{flex:none;animation:tick 22s linear infinite}
+.tick div::before{content:"🎮 ⚡ 🎯 🧠 🖱️ 🔢 🎲 🎨 🔐 ⏱️ 🎮 ⚡ 🎯 🧠 🖱️ 🔢 🎲 🎨 🔐 ⏱️ "}
+@keyframes tick{to{transform:translateX(-100%)}}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;margin-bottom:34px}
+.stat{gap:2px;padding:16px 18px}
+.stat .num{font-size:clamp(30px,5vw,44px);font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{color:var(--mute);font-weight:700;font-size:14px}
+.stat.live{background:linear-gradient(135deg,var(--b),var(--a));color:#fff}.stat.live span{color:#fff}
+.dot{position:absolute;top:14px;inset-inline-end:14px;width:12px;height:12px;border-radius:50%;background:var(--g);animation:live 1.6s infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(52,211,153,.85)}100%{box-shadow:0 0 0 14px rgba(52,211,153,0)}}
+.prog{position:fixed;top:0;left:0;right:0;height:4px;z-index:20;background:linear-gradient(90deg,var(--b),var(--a),var(--c));transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
+html[dir=rtl] .prog{transform-origin:right}
+.totop{position:fixed;bottom:20px;inset-inline-end:20px;z-index:20;width:50px;height:50px;padding:0;border-radius:50%;font-size:22px;opacity:0;pointer-events:none;transform:translateY(24px) scale(.5);transition:opacity .3s,transform .3s}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+.toast{position:fixed;left:50%;bottom:26px;z-index:60;transform:translate(-50%,30px);opacity:0;background:var(--ink);color:var(--bg);font-weight:800;padding:10px 22px;border-radius:99px;border:2.5px solid var(--ink);box-shadow:4px 4px 0 var(--sh);pointer-events:none;transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.best{font-weight:800;color:var(--mute);font-size:14px;text-align:center}
+main>section.on h2::after{content:"";display:block;height:6px;border-radius:4px;margin-top:10px;width:0;background:linear-gradient(90deg,var(--b),var(--a));animation:line .9s .25s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes line{to{width:min(220px,60%)}}
+.ico{display:inline-block;animation:hop 3.6s ease-in-out infinite}
+.grid>*:nth-child(2) .ico{animation-delay:-1.2s}.grid>*:nth-child(3) .ico{animation-delay:-2.4s}
+@keyframes hop{50%{transform:translateY(-7px) rotate(-7deg)}}
+.brand{display:inline-block;cursor:default}.brand:hover{animation:wig .5s}
+@keyframes wig{25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+@media(prefers-reduced-motion:reduce){.conf,.pts,.spot{display:none}*,*::before,*::after{animation:none!important;transition:none!important}.js .card,.js .pic{opacity:1!important;transform:none!important}}
 
 </style>
 </head>
-
 <body>
+<div class="prog" id="prog"></div><div class="toast" id="toast" role="status" aria-live="polite"></div><button class="totop" id="top" data-a="top" type="button" aria-label="Top">↑</button>
+<div class="blob b1"></div><div class="blob b2"></div><div class="pts" id="pts"></div><div class="spot"></div>
+<div id="nojs" class="warn">JavaScript is not running, so games and tools are off. | الجافاسكريبت مش شغالة، فالألعاب والأدوات مقفولة.</div>
+<header>
+  <div class="brand">NEXUS</div>
+  <nav aria-label="Main">
+    <a href="#home" data-i18n="home">Home</a><a href="#tools" data-i18n="tools">Tools</a><a href="#games" data-i18n="games">Games</a><a href="#discord" data-i18n="discord">Discord</a>
+  </nav>
+  <div class="acts">
+    <button class="ghost" id="themeBtn" data-a="theme" type="button"></button>
+    <button class="ghost" id="langBtn" data-a="lang" type="button"></button>
+  </div>
+</header>
 
-<!-- BACKGROUND EFFECTS -->
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
-<div class="particles" id="particles"></div>
-
-<!-- NAV -->
-<nav>
-    <div class="logo">NEXUS</div>
-
-    <div class="nav-links">
-        <a href="#home" data-page-link="home" data-i18n="home">Home</a>
-        <a href="#tools" data-page-link="tools" data-i18n="tools">Tools</a>
-        <a href="#games" data-page-link="games" data-i18n="games">Games</a>
-        <a href="#discord" data-page-link="discord" data-i18n="discord">Discord</a>
-
-        <button class="lang-btn" data-action="toggleLanguage">
-            عربي
-        </button>
+<main>
+<section id="home">
+  <div class="hero split">
+    <div>
+      <span class="tag" data-i18n="tag">Mini games & quick tools</span>
+      <h1>NEXUS</h1>
+      <p class="lead" data-i18n="lead"></p>
+      <a class="cta" href="#games" data-i18n="cta">Play now</a>
     </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home" data-page-section="home">
-
-    <div class="badge" data-i18n="badge">
-        ⚡ FUTURE EXPERIENCE
-    </div>
-
-    <h1>NEXUS</h1>
-
-    <p data-i18n="heroText">
-        A futuristic gaming space with interactive tools,
-        mini games and a unique neon experience.
-    </p>
-
-    <a href="#games" data-page-link="games" class="main-btn" data-i18n="start">
-        🚀 Start Experience
-    </a>
-
+    <figure class="heroimg"><div class="pic"><svg viewBox="0 0 200 150" aria-hidden="true"><rect class="a1" x="18" y="22" width="112" height="50" rx="16"/><rect class="a2" x="70" y="80" width="112" height="50" rx="16"/><circle class="w" cx="46" cy="47" r="6"/><circle class="w" cx="68" cy="47" r="6"/><circle class="w" cx="90" cy="47" r="6"/><rect class="a3" x="96" y="99" width="62" height="10" rx="5"/></svg><img referrerpolicy="no-referrer" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6a91b56007b07b1100448f85_Wumpus_Pose_03_Pointing-Right.webp" alt="Discord community artwork" width="340" height="340"></div></figure>
+  </div>
+  <div class="tick" aria-hidden="true"><div></div><div></div></div>
+  <div class="stats">
+    <div class="card stat live"><i class="dot" aria-hidden="true"></i><b class="num" id="vis">—</b><span data-i18n="visitors"></span></div>
+    <div class="card stat"><b class="num" data-count="6">6</b><span data-i18n="stGames"></span></div>
+    <div class="card stat"><b class="num" data-count="6">6</b><span data-i18n="stTools"></span></div>
+    <div class="card stat"><b class="num" data-count="2">2</b><span data-i18n="stLang"></span></div>
+  </div>
+  <div class="grid">
+    <a class="card feat" href="#games"><div class="ico">🎮</div><h3 data-i18n="f1t"></h3><p data-i18n="f1d"></p></a>
+    <a class="card feat" href="#tools"><div class="ico">🛠️</div><h3 data-i18n="f2t"></h3><p data-i18n="f2d"></p></a>
+    <a class="card feat" href="#discord"><div class="ico">💬</div><h3 data-i18n="f3t"></h3><p data-i18n="f3d"></p></a>
+  </div>
 </section>
 
-<!-- AI / ANIMATED CORE -->
-<section class="ai-section" data-page-section="home">
-
-    <div class="ai-core">
-
-        <div class="ai-ring"></div>
-
-        <div class="core-text" tabindex="0" aria-label="Nexus">
-            NEXUS
-        </div>
-
-        <div class="core-community-panel">
-            <span class="core-panel-kicker">NEXUS COMMUNITY</span>
-            <strong data-i18n="coreCommunityTitle">Your gaming space.</strong>
-            <p data-i18n="coreCommunityText">Gaming, chat, ideas and a community that keeps moving forward.</p>
-        </div>
-
-    </div>
-
+<section id="tools">
+  <h2 data-i18n="toolsT"></h2><p class="sub" data-i18n="toolsD"></p>
+  <div class="grid">
+    <div class="card"><h3 data-i18n="idea">💡 Idea</h3><button data-a="idea" data-i18n="gen" type="button"></button><div class="out" id="ideaO" data-k="ready"></div></div>
+    <div class="card"><h3 data-i18n="num"></h3>
+      <div class="row"><input id="mn" type="number" value="1" aria-label="Min" data-ph="min"><input id="mx" type="number" value="100" aria-label="Max" data-ph="max"></div>
+      <button data-a="num" data-i18n="gen" type="button"></button><div class="out" id="numO" data-k="ready"></div></div>
+    <div class="card"><h3 data-i18n="dice"></h3><button data-a="dice" data-i18n="roll" type="button"></button><div class="out" id="diceO"><span class="big">?</span></div></div>
+    <div class="card"><h3 data-i18n="color"></h3><div class="row"><button data-a="color" data-i18n="gen" type="button"></button><button class="ghost" data-a="copyColor" data-i18n="copy" type="button"></button></div><div class="out ccol" id="colO">#------</div></div>
+    <div class="card"><h3 data-i18n="code"></h3><div class="row"><button data-a="code" data-i18n="gen" type="button"></button><button class="ghost" data-a="copyCode" data-i18n="copy" type="button"></button></div><div class="out" id="codeO" data-k="ready"></div></div>
+    <div class="card"><h3 data-i18n="timer"></h3><input id="tmI" type="number" value="10" min="1" aria-label="Seconds" data-ph="sec"><button data-a="timer" data-i18n="start" type="button"></button><div class="out" id="tmO"><span class="big">10</span></div></div>
+  </div>
 </section>
 
-<!-- FEATURES -->
-<section class="section" data-page-section="home">
-
-    <div class="section-title">
-
-        <h2 data-i18n="systemTitle">
-            ⚡ SYSTEM
-        </h2>
-
-        <p data-i18n="systemDesc">
-            Explore different experiences inside NEXUS
-        </p>
-
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="icon">🎮</div>
-
-            <h3 data-i18n="gamingZone">
-                Gaming Zone
-            </h3>
-
-            <p data-i18n="gamingDesc">
-                Small games that run directly in your browser.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <div class="icon">🧠</div>
-
-            <h3 data-i18n="randomIdeas">
-                Random Ideas
-            </h3>
-
-            <p data-i18n="ideasDesc">
-                Generate different ideas for content and projects.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <div class="icon">🌌</div>
-
-            <h3 data-i18n="futureUI">
-                Future UI
-            </h3>
-
-            <p data-i18n="uiDesc">
-                Neon effects, animated background and futuristic design.
-            </p>
-
-        </div>
-
-    </div>
-
+<section id="games">
+  <h2 data-i18n="gamesT"></h2><p class="sub" data-i18n="gamesD"></p>
+  <div class="grid">
+    <div class="card"><h3 data-i18n="rt"></h3><p data-i18n="rtD"></p><button data-a="rtStart" data-i18n="start" type="button"></button><button class="pad" id="rtPad" data-a="rtClick" type="button" data-i18n="pressStart"></button><div class="out" id="rtO" data-k="ready"></div><div class="best" id="bR" data-k="bestNone"></div></div>
+    <div class="card"><h3 data-i18n="tg"></h3><p data-i18n="tgD"></p><div class="row"><input id="tgT" type="number" min="1" value="10" aria-label="Duration" data-ph="dur"><select id="tgU" aria-label="Unit"><option value="1" data-i18n="uS"></option><option value="60" data-i18n="uM"></option></select></div><button data-a="tgStart" data-i18n="start" type="button"></button><div class="field" id="tgF"><button id="tg" data-a="tgHit" type="button" aria-label="Target"></button></div><div class="out" id="tgO" data-k="hits" data-a2="[0]"></div><div class="best" id="bT" data-k="bestNone"></div></div>
+    <div class="card"><h3 data-i18n="gs"></h3><p data-i18n="gsD"></p><input id="gsI" type="number" min="1" max="20" data-ph="num1"><div class="row"><button data-a="gsTry" data-i18n="guess" type="button"></button><button class="ghost" data-a="gsNew" data-i18n="again" type="button"></button></div><div class="out" id="gsO"></div></div>
+    <div class="card"><h3 data-i18n="mm"></h3><p data-i18n="mmD"></p><button data-a="mmStart" data-i18n="start" type="button"></button><div class="out"><span class="big" id="mmD2">?</span></div><input id="mmI" inputmode="numeric" data-ph="seq"><button data-a="mmCheck" data-i18n="check" type="button"></button><div class="out" id="mmO" data-k="ready"></div></div>
+    <div class="card"><h3 data-i18n="ck"></h3><p data-i18n="ckD"></p><button data-a="ckStart" data-i18n="start" type="button"></button><button class="pad go" id="ckB" data-a="ckHit" type="button" disabled>0</button><div class="out" id="ckO" data-k="ready"></div><div class="best" id="bC" data-k="bestNone"></div></div>
+    <div class="card"><h3 data-i18n="sp"></h3><p data-i18n="spD"></p><button data-a="spStart" data-i18n="start" type="button"></button><div class="out"><span class="big" id="spN">?</span></div><input id="spI" type="number" data-ph="num2"><button data-a="spCheck" data-i18n="check" type="button"></button><div class="out" id="spO" data-k="ready"></div><div class="best" id="bS" data-k="bestNone"></div></div>
+  </div>
 </section>
 
-<!-- TOOLS -->
-<section class="section" id="tools" data-page-section="tools">
-
-    <div class="section-title">
-
-        <h2 data-i18n="toolsTitle">
-            🛠️ QUICK TOOLS
-        </h2>
-
-        <p data-i18n="toolsDesc">
-            Useful interactive tools
-        </p>
-
-    </div>
-
-    <div class="tools-grid">
-
-        <!-- RANDOM IDEA -->
-        <div class="tool">
-
-            <h3 data-i18n="ideaTitle">
-                💡 Random Idea
-            </h3>
-
-            <p class="tool-desc" data-i18n="ideaDesc">
-                Generate a random idea.
-            </p>
-
-            <button data-action="randomIdea" data-i18n="generateIdea">
-                🎲 Generate Idea
-            </button>
-
-            <div class="result" id="ideaResult">
-                Your idea will appear here
-            </div>
-
-        </div>
-
-        <!-- RANDOM NUMBER -->
-        <div class="tool">
-
-            <h3 data-i18n="numberTitle">
-                🔢 Random Number
-            </h3>
-
-            <p class="tool-desc" data-i18n="numberDesc">
-                Choose a minimum and maximum number.
-            </p>
-
-            <input
-                type="number"
-                id="minNumber"
-                placeholder="Minimum"
-                value="1"
-            >
-
-            <input
-                type="number"
-                id="maxNumber"
-                placeholder="Maximum"
-                value="100"
-            >
-
-            <button data-action="randomNumber" data-i18n="generateNumber">
-                🎯 Generate Number
-            </button>
-
-            <div class="result" id="numberResult">
-                Result will appear here
-            </div>
-
-        </div>
-
-        <!-- DICE -->
-        <div class="tool">
-
-            <h3 data-i18n="diceTitle">
-                🎲 Dice
-            </h3>
-
-            <p class="tool-desc" data-i18n="diceDesc">
-                Roll a virtual dice.
-            </p>
-
-            <button data-action="rollDice" data-i18n="rollDice">
-                🎲 Roll Dice
-            </button>
-
-            <div class="result" id="diceResult">
-                <span class="big-number">?</span>
-            </div>
-
-        </div>
-
-        <!-- RANDOM COLOR -->
-        <div class="tool">
-
-            <h3 data-i18n="colorTitle">
-                🎨 Random Color
-            </h3>
-
-            <p class="tool-desc" data-i18n="colorDesc">
-                Generate a random neon color.
-            </p>
-
-            <button data-action="randomColor" data-i18n="generateColor">
-                🌈 Generate Color
-            </button>
-
-            <div class="result" id="colorPreview">
-                #000000
-            </div>
-
-        </div>
-
-        <!-- RANDOM CODE -->
-        <div class="tool">
-
-            <h3 data-i18n="codeTitle">
-                🔐 Random Code
-            </h3>
-
-            <p class="tool-desc" data-i18n="codeDesc">
-                Generate a random code.
-            </p>
-
-            <button data-action="generateCode" data-i18n="generateCode">
-                ⚡ Generate Code
-            </button>
-
-            <div class="result" id="codeResult">
-                Code will appear here
-            </div>
-
-        </div>
-
-        <!-- TIMER -->
-        <div class="tool">
-
-            <h3 data-i18n="timerTitle">
-                ⏱️ Quick Timer
-            </h3>
-
-            <p class="tool-desc" data-i18n="timerDesc">
-                Start a quick countdown.
-            </p>
-
-            <input
-                type="number"
-                id="timerInput"
-                placeholder="Seconds"
-                value="10"
-                min="1"
-            >
-
-            <button data-action="startTimer" data-i18n="startTimer">
-                ▶ Start Timer
-            </button>
-
-            <div class="result" id="timerResult">
-                10
-            </div>
-
-        </div>
-
-    </div>
-
+<section id="discord">
+  <div class="disc">
+    <span class="tag" data-i18n="dTag"></span>
+    <h2 data-i18n="dT"></h2>
+    <p class="lead flush" data-i18n="dD"></p>
+    <a class="cta" href="https://discord.gg/wWbzezb64" target="_blank" rel="noopener noreferrer" data-i18n="join"></a>
+  </div>
+  <div class="gal">
+    <figure><div class="pic"><svg viewBox="0 0 200 150" aria-hidden="true"><rect class="a1" x="18" y="22" width="112" height="50" rx="16"/><rect class="a2" x="70" y="80" width="112" height="50" rx="16"/><circle class="w" cx="46" cy="47" r="6"/><circle class="w" cx="68" cy="47" r="6"/><circle class="w" cx="90" cy="47" r="6"/><rect class="a3" x="96" y="99" width="62" height="10" rx="5"/></svg><img referrerpolicy="no-referrer" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6abeb9f1b640925d76d940d4_leadupdated2.webp" alt="Discord community interface preview" loading="lazy"></div><figcaption data-i18n="g1"></figcaption></figure>
+    <figure><div class="pic"><svg viewBox="0 0 200 150" aria-hidden="true"><rect class="a1" x="25" y="42" width="150" height="74" rx="34"/><rect class="w" x="52" y="72" width="30" height="9" rx="3"/><rect class="w" x="63" y="61" width="9" height="30" rx="3"/><circle class="a2" cx="132" cy="68" r="8"/><circle class="a3" cx="150" cy="86" r="8"/></svg><img referrerpolicy="no-referrer" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6a91b56007b07b1100448f85_Wumpus_Pose_03_Pointing-Right.webp" alt="Discord Wumpus artwork" loading="lazy"></div><figcaption data-i18n="g2"></figcaption></figure>
+    <figure><div class="pic"><svg viewBox="0 0 200 150" aria-hidden="true"><circle class="a1" cx="100" cy="52" r="22"/><path class="a1" d="M60 118a40 34 0 0 1 80 0z"/><circle class="a2" cx="45" cy="70" r="15"/><path class="a2" d="M16 118a29 26 0 0 1 58 0z"/><circle class="a3" cx="155" cy="70" r="15"/><path class="a3" d="M126 118a29 26 0 0 1 58 0z"/></svg><img referrerpolicy="no-referrer" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6a9147353d1907a23b2fbfd3_Clyde_Pose02_Point-Left.webp" alt="Discord Clyde artwork" loading="lazy"></div><figcaption data-i18n="g3"></figcaption></figure>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="ico">🎮</div><h3 data-i18n="d1t"></h3><p data-i18n="d1d"></p></div>
+    <div class="card"><div class="ico">💬</div><h3 data-i18n="d2t"></h3><p data-i18n="d2d"></p></div>
+    <div class="card"><div class="ico">👥</div><h3 data-i18n="d3t"></h3><p data-i18n="d3d"></p></div>
+  </div>
 </section>
-
-<!-- GAMES -->
-<section class="section" id="games" data-page-section="games">
-
-    <div class="section-title">
-
-        <h2 data-i18n="gamesTitle">
-            🎮 GAMING ZONE
-        </h2>
-
-        <p data-i18n="gamesDesc">
-            Real mini games you can play now
-        </p>
-
-    </div>
-
-    <div class="games-grid">
-
-        <!-- REACTION -->
-        <div class="game">
-
-            <h3 data-i18n="reactionTitle">
-                ⚡ Reaction Test
-            </h3>
-
-            <p data-i18n="reactionDesc">
-                Wait for green and click as fast as possible.
-            </p>
-
-            <button data-action="startReaction" data-i18n="startTest">
-                Start Test
-            </button>
-
-            <div id="reactionArea" data-i18n="pressStart">
-                Press Start
-            </div>
-
-            <div class="game-result" id="reactionResult">
-                Your reaction time will appear here
-            </div>
-
-        </div>
-
-        <!-- TARGET -->
-        <div class="game">
-
-            <h3 data-i18n="targetTitle">
-                🎯 Target Hunter
-            </h3>
-
-            <p data-i18n="targetDesc">
-                Hit the target as quickly as possible.
-            </p>
-
-            <button data-action="startTarget" data-i18n="startGame">
-                Start Game
-            </button>
-
-            <div class="target-area" id="targetArea">
-                <div class="target" id="target"></div>
-            </div>
-
-            <div class="game-result" id="targetResult">
-                Hits: 0
-            </div>
-
-        </div>
-
-        <!-- GUESS -->
-        <div class="game">
-
-            <h3 data-i18n="guessTitle">
-                🧠 Guess The Number
-            </h3>
-
-            <p data-i18n="guessDesc">
-                Guess a number between 1 and 20.
-            </p>
-
-            <input
-                class="guess-input"
-                type="number"
-                id="guessInput"
-                min="1"
-                max="20"
-                placeholder="Enter number"
-            >
-
-            <button data-action="guessNumber" data-i18n="guessButton">
-                🎯 Guess
-            </button>
-
-            <button data-action="newGuessGame" data-i18n="newGame">
-                🔄 New Game
-            </button>
-
-            <div class="game-result" id="guessResult">
-                You have 5 attempts
-            </div>
-
-        </div>
-
-        <!-- MEMORY -->
-        <div class="game">
-
-            <h3 data-i18n="memoryTitle">
-                🧠 Memory Challenge
-            </h3>
-
-            <p data-i18n="memoryDesc">
-                Memorize the sequence before it disappears.
-            </p>
-
-            <button data-action="startMemory" data-i18n="startMemory">
-                Start Challenge
-            </button>
-
-            <div class="memory-display" id="memoryDisplay">
-                ?
-            </div>
-
-            <input
-                class="guess-input"
-                id="memoryInput"
-                placeholder="Enter sequence"
-            >
-
-            <button data-action="checkMemory" data-i18n="checkMemory">
-                Check
-            </button>
-
-            <div class="game-result" id="memoryResult">
-                Your result will appear here
-            </div>
-
-        </div>
-
-        <!-- CLICK CHALLENGE -->
-        <div class="game">
-
-            <h3 data-i18n="clickTitle">
-                🖱️ Click Challenge
-            </h3>
-
-            <p data-i18n="clickDesc">
-                Click as many times as possible before time runs out.
-            </p>
-
-            <button data-action="startClickGame" data-i18n="startClick">
-                Start Challenge
-            </button>
-
-            <div class="game-result" id="clickArea">
-                0
-            </div>
-
-            <button data-action="clickCounter" data-i18n="clickButton">
-                CLICK!
-            </button>
-
-            <div class="game-result" id="clickResult">
-                Ready
-            </div>
-
-        </div>
-
-        <!-- SPEED NUMBER -->
-        <div class="game">
-
-            <h3 data-i18n="speedTitle">
-                🔢 Speed Numbers
-            </h3>
-
-            <p data-i18n="speedDesc">
-                Type the shown number as quickly as possible.
-            </p>
-
-            <button data-action="startSpeedGame" data-i18n="startSpeed">
-                Start
-            </button>
-
-            <div class="memory-display" id="speedNumber">
-                ?
-            </div>
-
-            <input
-                class="guess-input"
-                id="speedInput"
-                type="number"
-                placeholder="Type number"
-            >
-
-            <button data-action="checkSpeedGame" data-i18n="checkSpeed">
-                Check
-            </button>
-
-            <div class="game-result" id="speedResult">
-                Ready
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- DISCORD -->
-
-<section class="discord" id="discord" data-page-section="discord">
-
-    <div class="internal-page-head">
-        <button class="page-back" type="button" data-page-link="home">← <span data-i18n="backHome">Back Home</span></button>
-        <div class="page-tag">NEXUS / DISCORD</div>
-    </div>
-
-    <div class="discord-hero">
-        <div class="discord-copy">
-            <div class="badge" data-i18n="communityBadge">💜 NEXUS COMMUNITY</div>
-            <h2 data-i18n="discordTitle">💜 NEXUS Community</h2>
-            <p data-i18n="discordDesc">Join the community and connect with everyone.</p>
-            <p class="discord-extra" data-i18n="discordExtra">
-                A place for gaming, chatting, sharing updates and meeting other members.
-            </p>
-        </div>
-        <div class="discord-logo-card" aria-hidden="true">
-            <div class="discord-mark">☁</div>
-            <span>DISCORD</span>
-        </div>
-    </div>
-
-    <div class="discord-gallery">
-        <div class="discord-image-card">
-            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6abeb9f1b640925d76d940d4_leadupdated2.webp" alt="Discord community interface preview">
-            <div class="image-caption" data-i18n="discordImage1">Community & conversations</div>
-        </div>
-        <div class="discord-image-card">
-            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6a91b56007b07b1100448f85_Wumpus_Pose_03_Pointing-Right.webp" alt="Discord Wumpus community artwork">
-            <div class="image-caption" data-i18n="discordImage2">Discord community style</div>
-        </div>
-        <div class="discord-image-card">
-            <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/6a9147353d1907a23b2fbfd3_Clyde_Pose02_Point-Left.webp" alt="Discord Clyde artwork">
-            <div class="image-caption" data-i18n="discordImage3">Connect & hang out</div>
-        </div>
-    </div>
-
-    <div class="discord-info-grid">
-        <div class="discord-info">
-            <span>🎮</span>
-            <h3 data-i18n="discordFeature1Title">Gaming</h3>
-            <p data-i18n="discordFeature1">Talk with the community while playing.</p>
-        </div>
-        <div class="discord-info">
-            <span>💬</span>
-            <h3 data-i18n="discordFeature2Title">Chat</h3>
-            <p data-i18n="discordFeature2">Share messages, ideas and updates.</p>
-        </div>
-        <div class="discord-info">
-            <span>👥</span>
-            <h3 data-i18n="discordFeature3Title">Community</h3>
-            <p data-i18n="discordFeature3">Meet people and stay connected.</p>
-        </div>
-    </div>
-
-    <p data-i18n="discordDesc">
-        Join the community and connect with everyone.
-    </p>
-
-    <a
-        class="main-btn"
-        href="https://discord.gg/wWbzezb64"
-        target="_blank"
-        rel="noopener noreferrer"
-        referrerpolicy="no-referrer"
-        data-i18n="joinDiscord"
-    >
-        💬 Join Discord
-    </a>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-    <p>
-        © 2026 <span>NEXUS</span> —
-        <span data-i18n="footerText">
-            Future Gaming Experience
-        </span>
-    </p>
-
-</footer>
+</main>
+<footer>© 2026 NEXUS (v5) — <span data-i18n="foot"></span></footer>
 
 <script nonce="P5I6jMsijd2FqGUUUvDOHLnBjZoOC9Eo">
-
-/* ================= PARTICLES ================= */
-
-const particles = document.getElementById("particles");
-
-for(let i = 0; i < 35; i++){
-
-    const p = document.createElement("div");
-
-    p.className = "particle";
-
-    p.style.left = Math.random() * 100 + "%";
-
-    p.style.animationDuration =
-        (5 + Math.random() * 10) + "s";
-
-    p.style.animationDelay =
-        Math.random() * 10 + "s";
-
-    particles.appendChild(p);
-}
-
-
-/* ================= LANGUAGE ================= */
-
-let currentLanguage = localStorage.getItem("nexusLanguage") === "ar" ? "ar" : "en";
-
-const translations = {
-
-en:{
-
-home:"Home",
-tools:"Tools",
-games:"Games",
-discord:"Discord",
-
-backHome:"Back Home",
-communityBadge:"💜 NEXUS COMMUNITY",
-coreCommunityTitle:"Your gaming space.",
-coreCommunityText:"Gaming, chat, ideas and a community that keeps moving forward.",
-discordExtra:"A place for gaming, chatting, sharing updates and meeting other members.",
-discordQuote:"“Play together. Create together. Keep moving forward.”",
-discordBottomTitle:"Built for gamers, creators and friends.",
-discordBottomText:"NEXUS brings the energy of the game into one place: play, chat, share and discover something new.",
-discordImage1:"Community & conversations",
-discordImage2:"Discord community style",
-discordImage3:"Connect & hang out",
-discordFeature1Title:"Gaming",
-discordFeature1:"Talk with the community while playing.",
-discordFeature2Title:"Chat",
-discordFeature2:"Share messages, ideas and updates.",
-discordFeature3Title:"Community",
-discordFeature3:"Meet people and stay connected.",
-
-badge:"⚡ FUTURE EXPERIENCE",
-
-heroText:
-"A futuristic gaming space with interactive tools, mini games and a unique neon experience.",
-
-start:"🚀 Start Experience",
-
-systemTitle:"⚡ SYSTEM",
-
-systemDesc:
-"Explore different experiences inside NEXUS",
-
-gamingZone:"Gaming Zone",
-
-gamingDesc:
-"Small games that run directly in your browser.",
-
-randomIdeas:"Random Ideas",
-
-ideasDesc:
-"Generate different ideas for content and projects.",
-
-futureUI:"Future UI",
-
-uiDesc:
-"Neon effects, animated background and futuristic design.",
-
-toolsTitle:"🛠️ QUICK TOOLS",
-
-toolsDesc:
-"Useful interactive tools",
-
-ideaTitle:"💡 Random Idea",
-
-ideaDesc:
-"Generate a random idea.",
-
-generateIdea:"🎲 Generate Idea",
-
-numberTitle:"🔢 Random Number",
-
-numberDesc:
-"Choose a minimum and maximum number.",
-
-generateNumber:"🎯 Generate Number",
-
-diceTitle:"🎲 Dice",
-
-diceDesc:
-"Roll a virtual dice.",
-
-rollDice:"🎲 Roll Dice",
-
-colorTitle:"🎨 Random Color",
-
-colorDesc:
-"Generate a random neon color.",
-
-generateColor:"🌈 Generate Color",
-
-codeTitle:"🔐 Random Code",
-
-codeDesc:
-"Generate a random code.",
-
-generateCode:"⚡ Generate Code",
-
-timerTitle:"⏱️ Quick Timer",
-
-timerDesc:
-"Start a quick countdown.",
-
-startTimer:"▶ Start Timer",
-
-gamesTitle:"🎮 GAMING ZONE",
-
-gamesDesc:
-"Real mini games you can play now",
-
-reactionTitle:"⚡ Reaction Test",
-
-reactionDesc:
-"Wait for green and click as fast as possible.",
-
-startTest:"Start Test",
-
-pressStart:"Press Start",
-
-targetTitle:"🎯 Target Hunter",
-
-targetDesc:
-"Hit the target as quickly as possible.",
-
-startGame:"Start Game",
-
-guessTitle:"🧠 Guess The Number",
-
-guessDesc:
-"Guess a number between 1 and 20.",
-
-guessButton:"🎯 Guess",
-
-newGame:"🔄 New Game",
-
-memoryTitle:"🧠 Memory Challenge",
-
-memoryDesc:
-"Memorize the sequence before it disappears.",
-
-startMemory:"Start Challenge",
-
-checkMemory:"Check",
-
-clickTitle:"🖱️ Click Challenge",
-
-clickDesc:
-"Click as many times as possible before time runs out.",
-
-startClick:"Start Challenge",
-
-clickButton:"CLICK!",
-
-speedTitle:"🔢 Speed Numbers",
-
-speedDesc:
-"Type the shown number as quickly as possible.",
-
-startSpeed:"Start",
-
-checkSpeed:"Check",
-
-discordTitle:"💜 NEXUS Community",
-
-discordDesc:
-"Join the community and connect with everyone.",
-
-joinDiscord:"💬 Join Discord",
-
-footerText:
-"Future Gaming Experience"
-
-},
-
-ar:{
-
-home:"الرئيسية",
-tools:"الأدوات",
-games:"الألعاب",
-discord:"ديسكورد",
-
-backHome:"العودة للرئيسية",
-communityBadge:"💜 مجتمع NEXUS",
-coreCommunityTitle:"مساحتك للجيمينج.",
-coreCommunityText:"جيمينج ودردشة وأفكار ومجتمع بيتطور معاك خطوة بخطوة.",
-discordExtra:"مكان للجيمينج والدردشة ومشاركة التحديثات والتعرف على أعضاء المجتمع.",
-discordQuote:"“العب مع بعض، اصنع مع بعض، وخليك دايمًا بتتقدم.”",
-discordBottomTitle:"مكان للجيمرز والمبدعين والأصحاب.",
-discordBottomText:"NEXUS بيجمع طاقة الجيم في مكان واحد: العب، اتكلم، شارك واكتشف حاجة جديدة.",
-discordImage1:"المجتمع والمحادثات",
-discordImage2:"ستايل مجتمع ديسكورد",
-discordImage3:"تواصل واقضي وقتك مع المجتمع",
-discordFeature1Title:"الألعاب",
-discordFeature1:"اتكلم مع المجتمع وإنت بتلعب.",
-discordFeature2Title:"الدردشة",
-discordFeature2:"شارك الرسائل والأفكار والتحديثات.",
-discordFeature3Title:"المجتمع",
-discordFeature3:"اتعرف على ناس وخليك متواصل.",
-
-badge:"⚡ تجربة المستقبل",
-
-heroText:
-"عالم ألعاب مستقبلي فيه أدوات تفاعلية وألعاب صغيرة وتجربة نيون مختلفة.",
-
-start:"🚀 ابدأ التجربة",
-
-systemTitle:"⚡ النظام",
-
-systemDesc:
-"اكتشف تجارب مختلفة داخل NEXUS",
-
-gamingZone:"منطقة الألعاب",
-
-gamingDesc:
-"ألعاب صغيرة تشتغل مباشرة من المتصفح.",
-
-randomIdeas:"أفكار عشوائية",
-
-ideasDesc:
-"طلّع أفكار مختلفة للمحتوى والمشاريع.",
-
-futureUI:"واجهة مستقبلية",
-
-uiDesc:
-"تأثيرات نيون وخلفية متحركة وتصميم مستقبلي.",
-
-toolsTitle:"🛠️ الأدوات السريعة",
-
-toolsDesc:
-"أدوات تفاعلية مختلفة",
-
-ideaTitle:"💡 فكرة عشوائية",
-
-ideaDesc:
-"طلّع فكرة عشوائية.",
-
-generateIdea:"🎲 طلّع فكرة",
-
-numberTitle:"🔢 رقم عشوائي",
-
-numberDesc:
-"حدد أقل وأكبر رقم.",
-
-generateNumber:"🎯 اختار الرقم",
-
-diceTitle:"🎲 النرد",
-
-diceDesc:
-"ارمي النرد.",
-
-rollDice:"🎲 ارمي النرد",
-
-colorTitle:"🎨 لون عشوائي",
-
-colorDesc:
-"ولّد لون نيون عشوائي.",
-
-generateColor:"🌈 ولّد لون",
-
-codeTitle:"🔐 كود عشوائي",
-
-codeDesc:
-"ولّد كود عشوائي.",
-
-generateCode:"⚡ ولّد كود",
-
-timerTitle:"⏱️ مؤقت سريع",
-
-timerDesc:
-"شغّل عداد تنازلي.",
-
-startTimer:"▶ ابدأ المؤقت",
-
-gamesTitle:"🎮 منطقة الألعاب",
-
-gamesDesc:
-"ألعاب فعلية تقدر تلعبها دلوقتي",
-
-reactionTitle:"⚡ اختبار سرعة رد الفعل",
-
-reactionDesc:
-"استنى اللون الأخضر واضغط بأسرع ما تقدر.",
-
-startTest:"ابدأ الاختبار",
-
-pressStart:"اضغط ابدأ",
-
-targetTitle:"🎯 صائد الأهداف",
-
-targetDesc:
-"اضرب الهدف بأسرع وقت ممكن.",
-
-startGame:"ابدأ اللعبة",
-
-guessTitle:"🧠 خمن الرقم",
-
-guessDesc:
-"خمن رقم من 1 إلى 20.",
-
-guessButton:"🎯 خمن",
-
-newGame:"🔄 لعبة جديدة",
-
-memoryTitle:"🧠 تحدي الذاكرة",
-
-memoryDesc:
-"احفظ التسلسل قبل ما يختفي.",
-
-startMemory:"ابدأ التحدي",
-
-checkMemory:"تحقق",
-
-clickTitle:"🖱️ تحدي الضغط",
-
-clickDesc:
-"اضغط أكبر عدد ممكن قبل انتهاء الوقت.",
-
-startClick:"ابدأ التحدي",
-
-clickButton:"اضغط!",
-
-speedTitle:"🔢 أرقام السرعة",
-
-speedDesc:
-"اكتب الرقم الظاهر بأسرع ما تقدر.",
-
-startSpeed:"ابدأ",
-
-checkSpeed:"تحقق",
-
-discordTitle:"💜 مجتمع NEXUS",
-
-discordDesc:
-"انضم للمجتمع واتواصل مع الناس.",
-
-joinDiscord:"💬 انضم إلى Discord",
-
-footerText:
-"تجربة ألعاب المستقبل"
-
-}
-
+const $=id=>document.getElementById(id);
+const T={
+home:["Home","الرئيسية"],tools:["Tools","الأدوات"],games:["Games","الألعاب"],discord:["Discord","ديسكورد"],
+tag:["Mini games & quick tools","ألعاب صغيرة وأدوات سريعة"],
+lead:["Six mini games and six handy tools. Everything runs right in your browser, no sign-up.","ست ألعاب صغيرة وست أدوات مفيدة. كله بيشتغل في المتصفح من غير تسجيل."],
+cta:["Play now","العب دلوقتي"],
+f1t:["Mini games","ألعاب صغيرة"],f1d:["Test your reflexes, memory and speed.","اختبر سرعة رد فعلك وذاكرتك وسرعتك."],
+f2t:["Quick tools","أدوات سريعة"],f2d:["Dice, random numbers, colors, codes and a timer.","نرد وأرقام وألوان وأكواد ومؤقت."],
+f3t:["Community","المجتمع"],f3d:["Chat and play with other members on Discord.","اتكلم والعب مع الأعضاء على ديسكورد."],
+toolsT:["Quick tools","الأدوات السريعة"],toolsD:["Pick a tool and press the button.","اختار أداة واضغط الزرار."],
+gamesT:["Mini games","الألعاب الصغيرة"],gamesD:["Pick a game and beat your own score.","اختار لعبة وكسّر رقمك."],
+idea:["💡 Random idea","💡 فكرة عشوائية"],num:["🔢 Random number","🔢 رقم عشوائي"],dice:["🎲 Dice","🎲 النرد"],color:["🎨 Random color","🎨 لون عشوائي"],code:["🔐 Random code","🔐 كود عشوائي"],timer:["⏱️ Timer","⏱️ مؤقت"],
+gen:["Generate","ولّد"],roll:["Roll","ارمي"],start:["Start","ابدأ"],check:["Check","تحقق"],guess:["Guess","خمّن"],again:["New game","لعبة جديدة"],
+min:["Min","الأقل"],max:["Max","الأكبر"],sec:["Seconds","ثواني"],num1:["1 to 20","من 1 إلى 20"],num2:["Type the number","اكتب الرقم"],seq:["Type the digits","اكتب الأرقام"],
+ready:["Ready","جاهز"],both:["Enter both numbers.","اكتب الرقمين."],up:["Time's up!","انتهى الوقت!"],
+i0:["🎮 Build a reaction game.","🎮 اعمل لعبة سرعة رد فعل."],i1:["🧠 Make a quiz about your favorite game.","🧠 اعمل كويز عن لعبتك المفضلة."],i2:["🏆 Add a leaderboard.","🏆 ضيف لوحة متصدرين."],i3:["🕹️ Design a small maze.","🕹️ صمم متاهة صغيرة."],i4:["🎵 Make a music visualizer.","🎵 اعمل مشغل موسيقى بصري."],i5:["🧩 Create a puzzle game.","🧩 اعمل لعبة ألغاز."],i6:["🚀 Build a space racing game.","🚀 اعمل لعبة سباق فضاء."],i7:["🔥 Add daily challenges.","🔥 ضيف تحديات يومية."],i8:["👾 Make a game against bots.","👾 اعمل لعبة ضد الروبوتات."],i9:["💡 Start a content idea series.","💡 ابدأ سلسلة أفكار محتوى."],
+rt:["⚡ Reaction test","⚡ سرعة رد الفعل"],rtD:["Press Start, wait for green, then tap as fast as you can.","اضغط ابدأ، استنى الأخضر، واضغط بأسرع ما تقدر."],
+pressStart:["Press Start","اضغط ابدأ"],wait:["Wait…","استنى…"],now:["TAP NOW!","اضغط دلوقتي!"],early:["Too early! Press Start to retry.","بدري! اضغط ابدأ وحاول تاني."],again2:["Press Start to try again","اضغط ابدأ للمحاولة التالية"],rtRes:["Reaction time: {0} ms","وقت رد فعلك: {0} ms"],
+tg:["🎯 Target hunter","🎯 صائد الأهداف"],tgD:["Tap the target every time it moves.","اضغط الهدف كل ما يتحرك."],hits:["Hits: {0}","الإصابات: {0}"],
+gs:["🧩 Guess the number","🧩 خمّن الرقم"],gsD:["Find the number from 1 to 20 in 5 tries.","اعرف الرقم من 1 لـ 20 في 5 محاولات."],
+gsStart:["5 tries left. Start guessing!","باقي 5 محاولات. ابدأ التخمين!"],gsBad:["Enter a number from 1 to 20.","اكتب رقم من 1 إلى 20."],gsWin:["Correct! The number was {0}.","صح! الرقم كان {0}."],gsLose:["Out of tries. The number was {0}.","خلصت المحاولات. الرقم كان {0}."],hi:["Higher! {0} tries left.","الرقم أكبر! باقي {0}."],lo:["Lower! {0} tries left.","الرقم أصغر! باقي {0}."],gsOver:["Game over. Press New game.","اللعبة خلصت. اضغط لعبة جديدة."],
+mm:["🧠 Memory","🧠 الذاكرة"],mmD:["Memorize five digits before they disappear.","احفظ خمس أرقام قبل ما تختفي."],mmLook:["Memorize it…","احفظ الرقم…"],mmType:["Now type what you remember.","اكتب اللي حفظته."],mmOk:["Correct!","صح!"],mmNo:["Wrong. It was {0}.","غلط. كان {0}."],mmFirst:["Press Start first.","اضغط ابدأ الأول."],
+ck:["🖱️ Click challenge","🖱️ تحدي الضغط"],ckD:["Tap as many times as you can in 10 seconds.","اضغط أكبر عدد في 10 ثواني."],ckGo:["Go! 10 seconds","يلا! 10 ثواني"],ckLeft:["{0} seconds left","باقي {0} ثواني"],ckEnd:["Score: {0} clicks","النتيجة: {0} ضغطة"],
+sp:["🔢 Speed numbers","🔢 أرقام السرعة"],spD:["Type the number as fast as you can.","اكتب الرقم بأسرع ما تقدر."],spOk:["Correct! {0} ms","صح! {0} ms"],spNo:["Wrong number.","الرقم غلط."],spFirst:["Press Start first.","اضغط ابدأ الأول."],
+dTag:["💜 Community","💜 المجتمع"],dT:["Join NEXUS on Discord","انضم لـ NEXUS على ديسكورد"],dD:["Chat, play and share ideas with other members.","اتكلم والعب وشارك أفكارك مع الأعضاء."],join:["Join Discord","انضم إلى ديسكورد"],
+d1t:["Gaming","الألعاب"],d1d:["Talk with the community while you play.","اتكلم مع المجتمع وإنت بتلعب."],d2t:["Chat","الدردشة"],d2d:["Share messages, ideas and updates.","شارك الرسائل والأفكار والتحديثات."],d3t:["People","الناس"],d3d:["Meet members and stay connected.","اتعرف على الأعضاء وخليك متواصل."],
+g1:["Community & conversations","المجتمع والمحادثات"],g2:["Discord community style","ستايل مجتمع ديسكورد"],g3:["Connect & hang out","تواصل واقضي وقتك"],
+dur:["Duration","المدة"],uS:["seconds","ثواني"],uM:["minutes","دقايق"],tgRun:["Hits: {0} · {1} s left","الإصابات: {0} · باقي {1} ث"],tgEnd:["Time's up! {0} hits in {1} s","انتهى الوقت! {0} إصابة في {1} ث"],
+visitors:["Visitors","الزوار"],stGames:["Mini games","ألعاب"],stTools:["Quick tools","أدوات"],stLang:["Languages","لغات"],
+copy:["Copy","انسخ"],copied:["Copied!","اتنسخ!"],copyFail:["Couldn't copy.","معرفتش أنسخ."],genFirst:["Generate one first.","ولّد الأول."],
+bestNone:["🏆 Best: —","🏆 أحسن نتيجة: —"],bestR:["🏆 Best: {0} ms","🏆 أحسن وقت: {0} ms"],bestC:["🏆 Best: {0} clicks","🏆 أحسن نتيجة: {0} ضغطة"],bestT:["🏆 Best for {1} s: {0} hits","🏆 أحسن نتيجة لـ {1} ث: {0} إصابة"],bestS:["🏆 Best: {0} ms","🏆 أحسن وقت: {0} ms"],newRec:["New record! 🎉","رقم قياسي جديد! 🎉"],
+foot:["Mini games & quick tools","ألعاب صغيرة وأدوات سريعة"],light:["Light","فاتح"],dark:["Dark","داكن"]
 };
-
-
-function applyLanguage(){
-
-    const lang = translations[currentLanguage];
-
-    document.querySelectorAll("[data-i18n]").forEach(element => {
-        const key = element.getAttribute("data-i18n");
-        if(lang[key]) element.textContent = lang[key];
-    });
-
-    document.documentElement.lang = currentLanguage;
-    document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
-
-    const langButton = document.querySelector(".lang-btn");
-    if(langButton){
-        langButton.textContent = currentLanguage === "en" ? "عربي" : "English";
-        langButton.setAttribute("aria-label", currentLanguage === "en" ? "Switch to Arabic" : "Switch to English");
-    }
-    localStorage.setItem("nexusLanguage", currentLanguage);
+let lang="en";try{lang=localStorage.getItem("nx-lang")==="ar"?"ar":"en"}catch(e){}
+const t=(k,...a)=>{let s=(T[k]||[k,k])[lang==="ar"?1:0];a.forEach((v,i)=>s=s.replace("{"+i+"}",v));return s};
+const msg=(id,k,...a)=>{const e=$(id);e.dataset.k=k;e.dataset.p=JSON.stringify(a);e.textContent=t(k,...a)};
+function apply(){
+  document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=t(e.dataset.i18n));
+  document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=t(e.dataset.ph));
+  document.querySelectorAll("[data-k]").forEach(e=>e.textContent=t(e.dataset.k,...JSON.parse(e.dataset.p||e.dataset.a2||"[]")));
+  refmt();const r=document.documentElement;r.lang=lang;r.dir=lang==="ar"?"rtl":"ltr";
+  $("langBtn").textContent=lang==="ar"?"English":"عربي";
+  const th=r.dataset.theme;$("themeBtn").textContent=th==="dark"?"☀️ "+t("light"):"🌙 "+t("dark");
+  rtLabel();
 }
-
-function toggleLanguage(){
-    currentLanguage = currentLanguage === "en" ? "ar" : "en";
-    applyLanguage();
-}
-
-
-/* ================= RANDOM IDEAS ================= */
-
-const ideas = [
-
-"🎮 Build a reaction speed game.",
-"🤖 Create a futuristic AI assistant.",
-"🌌 Create an animated space background.",
-"🎨 Build a neon color generator.",
-"🧠 Create a quiz game.",
-"🎯 Build a target shooting game.",
-"🏆 Add a leaderboard system.",
-"⏱️ Create a speed challenge.",
-"🔐 Build a random code generator.",
-"🕹️ Create a maze game.",
-"👾 Create a game against Bots.",
-"🚀 Build a space racing game.",
-"💻 Create a Cyberpunk dashboard.",
-"🌈 Build a dynamic color website.",
-"🎵 Create a music visualizer.",
-"📱 Build a full mobile version.",
-"🔥 Add daily challenges.",
-"🧩 Create a puzzle game.",
-"⚔️ Create a small arena game.",
-"🏁 Build a racing mini game.",
-"👻 Create a light horror game.",
-"🛰️ Build a spaceship control panel.",
-"🔮 Create a random prediction tool.",
-"💡 Build a content idea generator."
-
-];
-
-function randomIdea(){
-
-    const result =
-        ideas[
-            Math.floor(
-                Math.random() * ideas.length
-            )
-        ];
-
-    document.getElementById("ideaResult")
-        .textContent = result;
-}
-
-
-/* ================= RANDOM NUMBER ================= */
-
-function randomNumber(){
-
-    let min =
-        parseInt(
-            document.getElementById("minNumber").value
-        );
-
-    let max =
-        parseInt(
-            document.getElementById("maxNumber").value
-        );
-
-    if(isNaN(min) || isNaN(max)){
-
-        document.getElementById("numberResult")
-            .textContent =
-            currentLanguage === "ar"
-            ? "اكتب الرقمين الأول."
-            : "Enter both numbers.";
-
-        return;
-    }
-
-    if(min > max){
-
-        const temp = min;
-
-        min = max;
-        max = temp;
-    }
-
-    const result =
-        Math.floor(
-            Math.random() * (max - min + 1)
-        ) + min;
-
-    document.getElementById("numberResult")
-        .innerHTML =
-        `<span class="big-number">${result}</span>`;
-}
-
-
-/* ================= DICE ================= */
-
-function rollDice(){
-
-    const number =
-        Math.floor(
-            Math.random() * 6
-        ) + 1;
-
-    document.getElementById("diceResult")
-        .innerHTML =
-        `<span class="big-number">${number}</span>`;
-}
-
-
-/* ================= COLOR ================= */
-
-function randomColor(){
-
-    const letters =
-        "0123456789ABCDEF";
-
-    let color = "#";
-
-    for(let i=0;i<6;i++){
-
-        color +=
-            letters[
-                Math.floor(
-                    Math.random() * 16
-                )
-            ];
-    }
-
-    const box =
-        document.getElementById("colorPreview");
-
-    box.style.background = color;
-
-    box.style.boxShadow =
-        `0 0 25px ${color}`;
-
-    box.textContent = color;
-}
-
-
-/* ================= RANDOM CODE ================= */
-
-function generateCode(){
-
-    const chars =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-    let code = "";
-
-    for(let i=0;i<8;i++){
-
-        code +=
-            chars[
-                Math.floor(
-                    Math.random() * chars.length
-                )
-            ];
-    }
-
-    document.getElementById("codeResult")
-        .textContent = code;
-}
-
-
-/* ================= TIMER ================= */
-
-let timerInterval;
-
-function startTimer(){
-
-    clearInterval(timerInterval);
-
-    let seconds =
-        parseInt(
-            document.getElementById("timerInput").value
-        );
-
-    if(isNaN(seconds) || seconds <= 0){
-        seconds = 10;
-    }
-
-    const display =
-        document.getElementById("timerResult");
-
-    display.textContent = seconds;
-
-    timerInterval =
-        setInterval(() => {
-
-            seconds--;
-
-            display.textContent = seconds;
-
-            if(seconds <= 0){
-
-                clearInterval(timerInterval);
-
-                display.textContent =
-                    currentLanguage === "ar"
-                    ? "انتهى الوقت!"
-                    : "Time's up!";
-
-            }
-
-        },1000);
-}
-
-
-/* ================= REACTION GAME ================= */
-
-let reactionTimeout;
-let reactionStart;
-let reactionRunning = false;
-
-function startReaction(){
-
-    const area =
-        document.getElementById("reactionArea");
-
-    const result =
-        document.getElementById("reactionResult");
-
-    clearTimeout(reactionTimeout);
-
-    reactionRunning = false;
-
-    area.classList.remove("ready");
-
-    area.textContent =
-        currentLanguage === "ar"
-        ? "استنى..."
-        : "Wait...";
-
-    result.textContent =
-        currentLanguage === "ar"
-        ? "استنى اللون الأخضر!"
-        : "Wait for green!";
-
-    const delay =
-        Math.floor(
-            Math.random() * 3500
-        ) + 1500;
-
-    reactionTimeout =
-        setTimeout(() => {
-
-            reactionRunning = true;
-
-            reactionStart =
-                performance.now();
-
-            area.classList.add("ready");
-
-            area.textContent =
-                currentLanguage === "ar"
-                ? "اضغط دلوقتي!"
-                : "CLICK NOW!";
-
-        },delay);
-}
-
-
-document
-.getElementById("reactionArea")
-.addEventListener("click",function(){
-
-    if(!reactionRunning){
-
-        if(
-            this.textContent === "استنى..." ||
-            this.textContent === "Wait..."
-        ){
-
-            this.textContent =
-                currentLanguage === "ar"
-                ? "بدري! 😅"
-                : "Too early! 😅";
-
-        }
-
-        return;
-    }
-
-    const time =
-        Math.round(
-            performance.now() -
-            reactionStart
-        );
-
-    reactionRunning = false;
-
-    this.classList.remove("ready");
-
-    this.textContent =
-        currentLanguage === "ar"
-        ? "اضغط ابدأ للمحاولة التالية"
-        : "Press Start for another try";
-
-    document
-    .getElementById("reactionResult")
-    .textContent =
-        currentLanguage === "ar"
-        ? `⚡ وقت رد فعلك: ${time} ms`
-        : `⚡ Reaction time: ${time} ms`;
-
-});
-
-
-/* ================= TARGET GAME ================= */
-
-let hits = 0;
-
-function startTarget(){
-
-    hits = 0;
-
-    document
-    .getElementById("targetResult")
-    .textContent =
-        "Hits: 0";
-
-    moveTarget();
-}
-
-function moveTarget(){
-
-    const area =
-        document.getElementById("targetArea");
-
-    const target =
-        document.getElementById("target");
-
-    const maxX =
-        area.clientWidth - 38;
-
-    const maxY =
-        area.clientHeight - 38;
-
-    const x =
-        Math.random() * maxX;
-
-    const y =
-        Math.random() * maxY;
-
-    target.style.left =
-        x + "px";
-
-    target.style.top =
-        y + "px";
-
-    target.style.display =
-        "block";
-}
-
-document
-.getElementById("target")
-.addEventListener("click",function(){
-
-    hits++;
-
-    document
-    .getElementById("targetResult")
-    .textContent =
-        `🎯 Hits: ${hits}`;
-
-    moveTarget();
-
-});
-
-
-/* ================= GUESS GAME ================= */
-
-let secretNumber;
-let attempts;
-
-function newGuessGame(){
-
-    secretNumber =
-        Math.floor(
-            Math.random() * 20
-        ) + 1;
-
-    attempts = 5;
-
-    document
-    .getElementById("guessInput")
-    .value = "";
-
-    document
-    .getElementById("guessResult")
-    .textContent =
-        currentLanguage === "ar"
-        ? "عندك 5 محاولات — ابدأ التخمين!"
-        : "You have 5 attempts — start guessing!";
-}
-
-function guessNumber(){
-
-    const input =
-        document.getElementById("guessInput");
-
-    const result =
-        document.getElementById("guessResult");
-
-    const guess =
-        parseInt(input.value);
-
-    if(
-        isNaN(guess) ||
-        guess < 1 ||
-        guess > 20
-    ){
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? "اكتب رقم من 1 إلى 20."
-            : "Enter a number from 1 to 20.";
-
-        return;
-    }
-
-    attempts--;
-
-    if(guess === secretNumber){
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? `🎉 صح! الرقم كان ${secretNumber}.`
-            : `🎉 Correct! The number was ${secretNumber}.`;
-
-        return;
-    }
-
-    if(attempts <= 0){
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? `❌ خلصت المحاولات! الرقم كان ${secretNumber}.`
-            : `❌ No attempts left! The number was ${secretNumber}.`;
-
-        return;
-    }
-
-    if(guess < secretNumber){
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? `⬆️ الرقم أكبر! باقي ${attempts} محاولات.`
-            : `⬆️ Higher! ${attempts} attempts left.`;
-
-    }else{
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? `⬇️ الرقم أصغر! باقي ${attempts} محاولات.`
-            : `⬇️ Lower! ${attempts} attempts left.`;
-
-    }
-}
-
-
-/* ================= MEMORY GAME ================= */
-
-let memorySequence = "";
-
-function startMemory(){
-
-    memorySequence = "";
-
-    for(let i=0;i<5;i++){
-
-        memorySequence +=
-            Math.floor(
-                Math.random() * 10
-            );
-
-    }
-
-    const display =
-        document.getElementById("memoryDisplay");
-
-    const result =
-        document.getElementById("memoryResult");
-
-    document.getElementById("memoryInput")
-        .value = "";
-
-    display.textContent =
-        memorySequence;
-
-    result.textContent =
-        currentLanguage === "ar"
-        ? "احفظ الرقم..."
-        : "Memorize it...";
-
-    setTimeout(() => {
-
-        display.textContent = "???";
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? "اكتب التسلسل اللي حفظته."
-            : "Enter the sequence you remember.";
-
-    },2500);
-}
-
-function checkMemory(){
-
-    const input =
-        document.getElementById("memoryInput")
-        .value
-        .trim();
-
-    const result =
-        document.getElementById("memoryResult");
-
-    if(input === memorySequence){
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? "🎉 ممتاز! إجابة صحيحة."
-            : "🎉 Excellent! Correct.";
-
-    }else{
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? `❌ غلط. التسلسل كان ${memorySequence}`
-            : `❌ Wrong. The sequence was ${memorySequence}`;
-
-    }
-}
-
-
-/* ================= CLICK GAME ================= */
-
-let clickCount = 0;
-let clickRunning = false;
-let clickTimer;
-
-function startClickGame(){
-
-    clearInterval(clickTimer);
-
-    clickCount = 0;
-    clickRunning = true;
-
-    document.getElementById("clickArea")
-        .textContent = "0";
-
-    document.getElementById("clickResult")
-        .textContent =
-        currentLanguage === "ar"
-        ? "عندك 10 ثواني!"
-        : "You have 10 seconds!";
-
-    let seconds = 10;
-
-    clickTimer =
-        setInterval(() => {
-
-            seconds--;
-
-            document.getElementById("clickResult")
-                .textContent =
-                currentLanguage === "ar"
-                ? `باقي ${seconds} ثواني`
-                : `${seconds} seconds left`;
-
-            if(seconds <= 0){
-
-                clearInterval(clickTimer);
-
-                clickRunning = false;
-
-                document.getElementById("clickResult")
-                    .textContent =
-                    currentLanguage === "ar"
-                    ? `🏆 النتيجة: ${clickCount} ضغطة`
-                    : `🏆 Score: ${clickCount} clicks`;
-
-            }
-
-        },1000);
-}
-
-function clickCounter(){
-
-    if(!clickRunning) return;
-
-    clickCount++;
-
-    document.getElementById("clickArea")
-        .textContent = clickCount;
-}
-
-
-/* ================= SPEED NUMBERS ================= */
-
-let speedTarget = "";
-let speedStart = 0;
-
-function startSpeedGame(){
-
-    speedTarget =
-        Math.floor(
-            Math.random() * 900000
-        ) + 100000;
-
-    document.getElementById("speedNumber")
-        .textContent = speedTarget;
-
-    document.getElementById("speedInput")
-        .value = "";
-
-    document.getElementById("speedResult")
-        .textContent =
-        currentLanguage === "ar"
-        ? "اكتب الرقم بسرعة!"
-        : "Type it quickly!";
-
-    speedStart =
-        performance.now();
-}
-
-function checkSpeedGame(){
-
-    const input =
-        document.getElementById("speedInput")
-        .value
-        .trim();
-
-    const result =
-        document.getElementById("speedResult");
-
-    if(input !== speedTarget.toString()){
-
-        result.textContent =
-            currentLanguage === "ar"
-            ? "❌ الرقم غلط."
-            : "❌ Wrong number.";
-
-        return;
-    }
-
-    const time =
-        Math.round(
-            performance.now() -
-            speedStart
-        );
-
-    result.textContent =
-        currentLanguage === "ar"
-        ? `⚡ صح! وقتك ${time} ms`
-        : `⚡ Correct! Your time: ${time} ms`;
-}
-
-
-/* ================= SECURITY ================= */
-/*
-   Client-side hardening is enabled through the CSP and Permissions Policy above.
-   Real HTTP security headers (HSTS, X-Content-Type-Options, frame-ancestors)
-   must also be configured on the hosting server/CDN.
-*/
-
-/* ================= START ================= */
-
-
-/* ================= INTERNAL PAGE ROUTER ================= */
-
-const nexusPages = ["home","tools","games","discord"];
-
-function openNexusPage(page, updateHash = true){
-    page = typeof page === "string" ? page.toLowerCase().trim() : "home";
-    if(!nexusPages.includes(page)) page = "home";
-
-    document.body.dataset.page = page;
-
-    document.querySelectorAll("[data-page-link]").forEach(link=>{
-        link.classList.toggle("active", link.dataset.pageLink === page);
-    });
-
-    if(updateHash && location.hash !== "#" + page){
-        history.pushState({page}, "", "#" + page);
-    }
-
-    window.scrollTo({top:0, behavior:"smooth"});
-}
-
-document.addEventListener("click", (event)=>{
-    const actionElement = event.target.closest("[data-action]");
-    if(actionElement){
-        const action = actionElement.dataset.action;
-        const actions = {
-            toggleLanguage, randomIdea, randomNumber, rollDice, randomColor,
-            generateCode, startTimer, startReaction, startTarget, guessNumber,
-            newGuessGame, startMemory, checkMemory, startClickGame, clickCounter,
-            startSpeedGame, checkSpeedGame
-        };
-        if(typeof actions[action] === "function") actions[action]();
-        return;
-    }
-    const link = event.target.closest("[data-page-link]");
-    if(!link) return;
-
-    event.preventDefault();
-    openNexusPage(link.dataset.pageLink);
-});
-
-window.addEventListener("hashchange", ()=>{
-    openNexusPage(location.hash.slice(1) || "home", false);
-});
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    openNexusPage(location.hash.slice(1) || "home", false);
-});
-
-newGuessGame();
-
+const rnd=n=>Math.floor(Math.random()*n);
+const big=(id,v)=>{const e=$(id),x=document.createElement("span");x.className="big";x.textContent=v;e.replaceChildren(x)};
+const A={
+lang(){lang=lang==="en"?"ar":"en";try{localStorage.setItem("nx-lang",lang)}catch(e){}apply()},
+theme(){const r=document.documentElement,m=r.dataset.theme==="dark"?"light":"dark";r.dataset.theme=m;try{localStorage.setItem("nx-theme",m)}catch(e){}apply()},
+idea(){msg("ideaO","i"+rnd(10))},
+top(){scrollTo({top:0,behavior:RM?"auto":"smooth"})},
+copyCode(){const e=$("codeO");e.dataset.k?toast("genFirst"):copy(e.textContent)},
+copyColor(){const v=$("colO").textContent;/^#[0-9A-F]{6}$/.test(v)?copy(v):toast("genFirst")},
+num(){let a=parseInt($("mn").value),b=parseInt($("mx").value);if(isNaN(a)||isNaN(b))return msg("numO","both");if(a>b)[a,b]=[b,a];$("numO").removeAttribute("data-k");big("numO",rnd(b-a+1)+a)},
+dice(){big("diceO",rnd(6)+1)},
+color(){const c=document.createElement("canvas").getContext("2d"),h=rnd(360),o=$("colO");c.fillStyle="hsl("+h+",95%,58%)";const hex=c.fillStyle.toUpperCase();o.style.background=hex;o.textContent=hex},
+code(){const s="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",u=crypto.getRandomValues(new Uint8Array(8));const e=$("codeO");e.removeAttribute("data-k");e.textContent=[...u].map(x=>s[x%s.length]).join("")},
+timer(){clearInterval(tmI);let s=parseInt($("tmI").value);if(isNaN(s)||s<1)s=10;const o=$("tmO"),show=v=>big("tmO",v);show(s);tmI=setInterval(()=>{s--;if(s<=0){clearInterval(tmI);o.removeAttribute("data-k");msg("tmO","up")}else show(s)},1000)},
+rtStart(){clearTimeout(rtT);rt="wait";rtLabel();$("rtPad").classList.remove("go");msg("rtO","wait");rtT=setTimeout(()=>{rt="go";rtT0=performance.now();$("rtPad").classList.add("go");rtLabel()},1500+rnd(3500))},
+rtClick(){if(rt==="wait"){clearTimeout(rtT);rt="idle";msg("rtO","early");rtLabel()}else if(rt==="go"){const ms=Math.round(performance.now()-rtT0);rt="idle";$("rtPad").classList.remove("go");msg("rtO","rtRes",ms);rec("rt",ms,true,"bR","bestR");rtLabel("again2")}},
+tgStart(){clearInterval(tgI);let d=Math.round(parseFloat($("tgT").value)*parseInt($("tgU").value));if(isNaN(d)||d<1)d=10;if(d>3600)d=3600;tgN=0;tgOn=true;B["tg"+d]!=null?msg("bT","bestT",B["tg"+d],d):msg("bT","bestNone");const end=performance.now()+d*1000;let last=-1;tgMove();msg("tgO","tgRun",0,d);
+ tgI=setInterval(()=>{const l=Math.ceil((end-performance.now())/1000);if(l<=0){clearInterval(tgI);tgOn=false;$("tg").style.display="none";msg("tgO","tgEnd",tgN,d);burst($("tgO"));rec("tg"+d,tgN,false,"bT","bestT",d)}else if(l!==last){last=l;msg("tgO","tgRun",tgN,l)}},100)},
+tgHit(){if(!tgOn)return;tgN++;const p=JSON.parse($("tgO").dataset.p);msg("tgO","tgRun",tgN,p[1]);tgMove()},
+gsNew(){gsN=rnd(20)+1;gsLeft=5;$("gsI").value="";msg("gsO","gsStart")},
+gsTry(){const o=$("gsO");if(gsLeft<=0||gsDone)return msg("gsO","gsOver");const g=parseInt($("gsI").value);if(isNaN(g)||g<1||g>20)return msg("gsO","gsBad");gsLeft--;if(g===gsN){gsDone=true;msg("gsO","gsWin",gsN);burst($("gsO"))}else if(gsLeft<=0)msg("gsO","gsLose",gsN);else msg("gsO",g<gsN?"hi":"lo",gsLeft)},
+mmStart(){mmS="";for(let i=0;i<5;i++)mmS+=rnd(10);mmOn=false;$("mmI").value="";$("mmD2").textContent=mmS;msg("mmO","mmLook");clearTimeout(mmT);mmT=setTimeout(()=>{$("mmD2").textContent="???";mmOn=true;msg("mmO","mmType")},2500)},
+mmCheck(){if(!mmOn)return msg("mmO","mmFirst");mmOn=false;$("mmD2").textContent=mmS;$("mmI").value.trim()===mmS?(msg("mmO","mmOk"),burst($("mmO"))):msg("mmO","mmNo",mmS)},
+ckStart(){clearInterval(ckT);ckN=0;let s=10;$("ckB").disabled=false;$("ckB").textContent="0";msg("ckO","ckGo");ckT=setInterval(()=>{s--;if(s<=0){clearInterval(ckT);$("ckB").disabled=true;msg("ckO","ckEnd",ckN);burst($("ckO"));rec("ck",ckN,false,"bC","bestC")}else msg("ckO","ckLeft",s)},1000)},
+ckHit(){ckN++;$("ckB").textContent=ckN},
+spStart(){spV=String(100000+rnd(900000));$("spN").textContent=spV;$("spI").value="";$("spI").focus();msg("spO","spStart2");spT0=performance.now()},
+spCheck(){if(!spV)return msg("spO","spFirst");if($("spI").value.trim()!==spV)return msg("spO","spNo");const ms=Math.round(performance.now()-spT0);msg("spO","spOk",ms);burst($("spO"));rec("sp",ms,true,"bS","bestS");spV=""}
+};
+T.spStart2=["Type it fast!","اكتب بسرعة!"];
+let tmI,rt="idle",rtT,rtT0,tgN=0,tgOn=false,tgI,gsN,gsLeft,gsDone=false,mmS="",mmOn=false,mmT,ckN=0,ckT,spV="",spT0;
+function rtLabel(k){const p=$("rtPad");p.textContent=t(k||(rt==="wait"?"wait":rt==="go"?"now":"pressStart"))}
+function tgMove(){const f=$("tgF"),g=$("tg");g.style.display="block";g.style.left=rnd(f.clientWidth-38)+"px";g.style.top=rnd(f.clientHeight-38)+"px"}
+const pages=["home","tools","games","discord"];
+function route(p){if(!pages.includes(p))p="home";pages.forEach(x=>$(x).classList.toggle("on",x===p));document.querySelectorAll("nav a").forEach(a=>a.getAttribute("href")==="#"+p?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));window.scrollTo(0,0)}
+document.addEventListener("click",e=>{
+  const l=e.target.closest('a[href^="#"]');
+  if(l){e.preventDefault();const p=l.getAttribute("href").slice(1);route(p);try{history.pushState(null,"","#"+p)}catch(_){}return}
+  const b=e.target.closest("[data-a]");if(b&&A[b.dataset.a])A[b.dataset.a]()});
+addEventListener("hashchange",()=>route(location.hash.slice(1)));
+document.querySelectorAll("img").forEach(i=>{const h=()=>{i.hidden=true};i.addEventListener("error",h);if(i.complete&&!i.naturalWidth)h()});
+
+
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function burst(el){if(RM)return;const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;for(let i=0;i<28;i++){const c=document.createElement("i");c.className="conf";c.style.left=cx+"px";c.style.top=cy+"px";const a=Math.random()*6.28,d=60+Math.random()*130;c.style.setProperty("--dx",Math.cos(a)*d+"px");c.style.setProperty("--dy",Math.sin(a)*d-40+"px");c.style.background=["#a855f7","#d946ef","#c4b5fd","#34d399","#ffffff"][i%5];document.body.appendChild(c);setTimeout(()=>c.remove(),950)}}
+for(let i=0;i<22;i++){const d=document.createElement("i");d.className="pt";d.style.left=rnd(100)+"%";const z=3+rnd(6);d.style.width=d.style.height=z+"px";d.style.animationDuration=8+rnd(12)+"s";d.style.animationDelay=-rnd(20)+"s";$("pts").appendChild(d)}
+if(matchMedia("(hover:hover)").matches)addEventListener("pointermove",e=>{const r=document.documentElement.style;r.setProperty("--mx",e.clientX+"px");r.setProperty("--my",e.clientY+"px")});
+document.addEventListener("pointerdown",e=>{const b=e.target.closest("button,.cta");if(!b||RM)return;const r=b.getBoundingClientRect(),x=document.createElement("span");x.className="rip";x.style.left=e.clientX-r.left+"px";x.style.top=e.clientY-r.top+"px";b.appendChild(x);setTimeout(()=>x.remove(),650)});
+
+const B=(()=>{try{return JSON.parse(localStorage.getItem("nx-best")||"{}")}catch(e){return{}}})();
+let toastT;
+function toast(k){const e=$("toast");e.textContent=t(k);e.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove("show"),1800)}
+async function copy(x){try{await navigator.clipboard.writeText(x);toast("copied")}catch(e){toast("copyFail")}}
+function rec(key,val,low,id,k,...x){const old=B[key],better=old==null||(low?val<old:val>old);if(better){B[key]=val;try{localStorage.setItem("nx-best",JSON.stringify(B))}catch(e){}}msg(id,k,B[key],...x);if(better&&old!=null)toast("newRec")}
+[["bR","rt","bestR"],["bC","ck","bestC"],["bS","sp","bestS"]].forEach(([id,k,m])=>{if(B[k]!=null)msg(id,m,B[k])});
+if(B.tg10!=null)msg("bT","bestT",B.tg10,10);
+const fmt=n=>n.toLocaleString(lang==="ar"?"ar-EG":"en-US");
+function countUp(el,to){if(RM){el.textContent=fmt(to);return}const t0=performance.now();(function f(now){const k=Math.min(1,(now-t0)/1400);el.textContent=fmt(Math.round(to*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(f)})(t0)}
+function refmt(){document.querySelectorAll("[data-count]").forEach(e=>{if(e.dataset.done)e.textContent=fmt(+e.dataset.count)});if(visDone)$("vis").textContent=fmt(visN)}
+let visN=null,visSeen=false,visDone=false;
+function tryVis(){if(visN!=null&&visSeen&&!visDone){visDone=true;$("vis").dataset.count=visN;$("vis").dataset.done="1";countUp($("vis"),visN)}}
+const mt=n=>{const m=document.querySelector('meta[name="'+n+'"]');return m&&m.content};
+(async()=>{const ns=mt("visits-ns"),nm=mt("visits-name")||"visits";if(!ns)return;let seen=false;try{seen=localStorage.getItem("nx-seen")==="1"}catch(e){seen=true}
+ try{const r=await fetch("https://api.counterapi.dev/v1/"+encodeURIComponent(ns)+"/"+encodeURIComponent(nm)+(seen?"":"/up"),{cache:"no-store"});const j=await r.json();
+ const v=[j.count,j.value,j.up_count,j.data&&j.data.up_count,j.data&&j.data.count,j.data&&j.data.value].find(x=>typeof x==="number");
+ if(v==null)return;if(!seen)try{localStorage.setItem("nx-seen","1")}catch(e){}visN=v;tryVis()}catch(e){}})();
+const stats=document.querySelectorAll(".stat");
+if("IntersectionObserver"in window){const so=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;so.unobserve(e.target);const n=e.target.querySelector(".num");if(n.id==="vis"){visSeen=true;tryVis()}else{n.dataset.done="1";countUp(n,+n.dataset.count)}}),{threshold:.4});stats.forEach(x=>so.observe(x))}else{visSeen=true;tryVis()}
+addEventListener("scroll",()=>{const d=document.documentElement,m=d.scrollHeight-innerHeight;d.style.setProperty("--p",m>0?scrollY/m:0);$("top").classList.toggle("show",scrollY>400)},{passive:true});
+const h1=document.querySelector("h1");h1.setAttribute("aria-label",h1.textContent);h1.textContent="";
+[..."NEXUS"].forEach((c,n)=>{const x=document.createElement("span");x.className="l";x.setAttribute("aria-hidden","true");x.textContent=c;x.style.animationDelay=(n*.09)+"s,"+(.9+n*.15)+"s";h1.appendChild(x)});
+const cards=document.querySelectorAll(".card,.pic");
+if("IntersectionObserver"in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+cards.forEach((c,n)=>{c.style.transitionDelay=(n%6)*70+"ms";io.observe(c)})}else cards.forEach(c=>c.classList.add("in"));
+if(matchMedia("(hover:hover)").matches)document.querySelectorAll(".card").forEach(c=>{
+ c.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();c.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*9+"deg");c.style.setProperty("--rx",(.5-(e.clientY-r.top)/r.height)*9+"deg")});
+ c.addEventListener("pointerleave",()=>{c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")})});
+$("gsO").dataset.k="gsStart";A.gsNew();apply();document.documentElement.classList.add("js");route(location.hash.slice(1));$("nojs").remove();
 </script>
-
 </body>
 </html>
